@@ -28,6 +28,26 @@
     </table>
 </form>
 <p id="Result"></p>
-<script src="ung_dung_chuyen_doi_tien.js"></script>
+<script>
+    function changeMoney() {
+        let Amount = document.getElementById('Amount').value;
+        let From = document.getElementById('From').value;
+        let To = document.getElementById('To').value;
+        let Result;
+        if (From == 'VND' && To == 'USD') {
+            Result = 'Kết quả là: '+ (Number(Amount) / 23000) +' USD';
+        }
+        else if (From == 'USD' && To == 'VND') {
+            Result = 'Kết quả là: '+ (Number(Amount) * 23000) +' VNĐ';
+        }
+        else if (From == 'VND' && To == 'VND') {
+            Result = 'Kết quả là: '+ Number(Amount) +' VNĐ';
+        }
+        else{
+            Result = 'Kết quả là: '+Number(Amount) +' USD';
+        }
+        document.getElementById('Result').innerHTML = Result;
+    }
+</script>
 </body>
 </html>
