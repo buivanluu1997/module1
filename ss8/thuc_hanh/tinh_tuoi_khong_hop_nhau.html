@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tứ hành xung</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>Tuổi Nam</th>
+        <th>Tuổi Nữ</th>
+    </tr>
+    <tr>
+        <td><input type="number" placeholder="Nhập tuổi Nam" id="nam"></td>
+        <td><input type="number" placeholder="Nhập tuổi Nữ" id="nu"></td>
+        <td><button type="button" onclick="ketqua()">Kết quả</button></td>
+    </tr>
+</table>
+<p id="check"></p>
+
+<script>
+    function ketqua() {
+        let Nam = parseInt(document.getElementById("nam").value);
+        let Nu = parseInt(document.getElementById("nu").value);
+        let tuoiNam = (Nam -4) % 12;
+        let tuoiNu = (Nu -4) % 12;
+        if (tuoiNam == 2 && (tuoiNu == 5 || tuoiNu == 8 || tuoiNu == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNam == 5 && (tuoiNu == 2 || tuoiNu == 8 || tuoiNu == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNam == 8 && (tuoiNu == 2 || tuoiNu == 5 || tuoiNu == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNam == 11 && (tuoiNu == 2 || tuoiNu == 8 || tuoiNu == 5)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNu == 2 && (tuoiNam == 5 || tuoiNam == 8 || tuoiNam == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNu == 5 && (tuoiNam == 2 || tuoiNam == 8 || tuoiNam == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNu == 8 && (tuoiNam == 5 || tuoiNam == 2 || tuoiNam == 11)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else if (tuoiNu == 11 && (tuoiNam == 5 || tuoiNam == 8 || tuoiNam == 2)) {
+            document.getElementById("check").innerHTML= "không hợp nhau" ;
+        }
+        else {
+            document.getElementById("check").innerHTML= "quá hợp nhau" ;
+        }
+    }
+</script>
+</body>
+</html>
