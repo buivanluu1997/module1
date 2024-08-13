@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<script>
+    let diemKT = Number(prompt("Nhập điểm kiểm tra: "));
+    let diemGiuaKy = Number(prompt("Nhập điểm thi giữa kì: "));
+    let diemCuoiKy = Number(prompt("Nhập điểm cuối kì: "));
+    let diemTB = ( diemKT + (diemGiuaKy*2) + (diemCuoiKy*3))/6 ;
+    if (diemTB < 5) {
+        alert("Học lực Yếu");
+    }
+    else if (diemTB < 6.5) {
+        alert("Học lực Trung Bình");
+    }
+    else if (diemTB < 8) {
+        alert("Học lực Khá");
+    }
+    else {
+        alert("Học lực giỏi");
+    }
+</script>
+</body>
+</html>

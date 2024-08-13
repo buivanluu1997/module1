@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 7</title>
+</head>
+<body>
+<input type="number" placeholder="Nhập vào số phút" id="sophut">
+<select id="cuocDT">
+    <option value="trongTinh" id="trongtinh">Trong tỉnh</option>
+    <option value="ngoaiTinh" id="ngoaitinh">Ngoại tỉnh</option>
+    <option value="quocTe" id="quocte">Quốc tế</option>
+</select>
+<button type="button" onclick="tong()">=</button>
+<p id="ketqua"></p>
+<script>
+    function tong() {
+        let soPhut = document.getElementById("sophut").value;
+        let cuocDT = document.getElementById("cuocDT").value;
+        let ketQua;
+        if (cuocDT == "trongTinh") {
+            ketQua = 50000 + Number(soPhut)*200 ;
+        }
+        else if (cuocDT == "ngoaiTinh") {
+            ketQua = 50000 + Number(soPhut)*500 ;
+        }
+        else {
+            ketQua = 50000 + Number(soPhut)*1000 ;
+        }
+        document.getElementById("ketqua").innerHTML = "Cước điện thoại là: "+ketQua
+    }
+</script>
+</body>
+</html>

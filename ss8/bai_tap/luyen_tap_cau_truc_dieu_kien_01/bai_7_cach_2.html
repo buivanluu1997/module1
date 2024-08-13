@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let soPhut = Number(prompt("nhập số phút: "));
+    let ketQua;
+    let cuocDT = prompt("chọn trong tỉnh, ngoại tỉnh hoặc quốc tế")
+    if (cuocDT== "trong tỉnh") {
+        ketQua = 50000 + soPhut * 200 ;
+    }
+    else if (cuocDT == "ngoại tỉnh") {
+        ketQua = 50000 + soPhut * 500 ;
+    }
+    else {
+        ketQua = 50000 + soPhut * 1000;
+    }
+    alert("Tổng cước đt là = "+ketQua)
+</script>
+</body>
+</html>
