@@ -11,14 +11,14 @@
     <input type="button" value="=" id="btn">
     <p id="ketqua"></p>
     <script>
-        function Result() {
+        function result() {
             let canhA = parseInt(document.getElementById("nhapCanhA").value);
             let canhB = parseInt(document.getElementById("nhapCanhB").value);
             let dienTich = (1/2) * canhA * canhB ;
             document.getElementById("ketqua").innerHTML = "Diện tích tam giác vuông = "+dienTich;
         }
         let clickBtn = document.getElementById("btn");
-        clickBtn.addEventListener("click", Result);
+        clickBtn.addEventListener("click", result);
     </script>
 </form>
 </body>
