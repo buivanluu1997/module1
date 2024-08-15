@@ -19,15 +19,13 @@
         let cuocDT = document.getElementById("cuocDT").value;
         let ketQua;
         if (cuocDT == "trongTinh") {
-            ketQua = 50000 + Number(soPhut)*200 ;
+            ketQua = 50000 + Number(soPhut) * 200;
+        } else if (cuocDT == "ngoaiTinh") {
+            ketQua = 50000 + Number(soPhut) * 500;
+        } else {
+            ketQua = 50000 + Number(soPhut) * 1000;
         }
-        else if (cuocDT == "ngoaiTinh") {
-            ketQua = 50000 + Number(soPhut)*500 ;
-        }
-        else {
-            ketQua = 50000 + Number(soPhut)*1000 ;
-        }
-        document.getElementById("ketqua").innerHTML = "Cước điện thoại là: "+ketQua
+        document.getElementById("ketqua").innerHTML = "Cước điện thoại là: " + ketQua;
     }
 </script>
 </body>

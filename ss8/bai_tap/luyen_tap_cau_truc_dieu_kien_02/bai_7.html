@@ -1,10 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Giải phương trình bậc 2</title>
 </head>
 <body>
-$END$
+<input type="number" placeholder="Nhập số a" id="nhapA">
+<input type="number" placeholder="Nhập số b" id="nhapB">
+<input type="number" placeholder="Nhập số c" id="nhapC">
+<button id="btn">=</button>
+<h2>Kết quả là: </h2>
+<p id="ketqua"></p>
+<script>
+    function result() {
+        let soA = parseFloat(document.getElementById("nhapA").value);
+        let soB = parseFloat(document.getElementById("nhapB").value);
+        let soC = parseFloat(document.getElementById("nhapC").value);
+        let delta = Math.pow(soB,2) - 4 * soA * soC ;
+        let ketQua;
+        if (delta < 0) {
+            ketQua = "Phương trình Vô Nghiệm" ;
+        } else if (delta === 0) {
+            ketQua = "Phương trình có 1 nghiệm kép = "+(-soB / (2 * soA));
+        } else {
+            let x1 = parseFloat((-soB + Math.sqrt(delta)) / (2 * soA));
+            let x2 = parseFloat((-soB - Math.sqrt(delta)) / (2 * soA));
+            ketQua = "Phương trình có 2 nghiệm x1= "+x1 +" và x2 = "+x2;
+        }
+        document.getElementById("ketqua").innerHTML = ketQua;
+    }
+    let myBtn = document.getElementById("btn");
+    myBtn.addEventListener("click", result);
+</script>
 </body>
 </html>

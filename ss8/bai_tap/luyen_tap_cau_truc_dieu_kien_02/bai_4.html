@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.</title>
 </head>
 <body>
-$END$
+<input type="number" placeholder="Nhập chiều dài" id="length">
+<input type="number" placeholder="Nhập chiều dài" id="width">
+<button onclick="check();">=</button>
+<h2>Kết quả: </h2>
+<p id="result"></p>
+<script>
+    function check() {
+        let inLength = parseInt(document.getElementById("length").value);
+        let inWitdh = parseInt(document.getElementById("width").value);
+        let acreage = inLength * inWitdh ;
+        document.getElementById("result").innerHTML = "Diện tích hình chữ nhật = "+acreage;
+    }
+</script>
 </body>
 </html>

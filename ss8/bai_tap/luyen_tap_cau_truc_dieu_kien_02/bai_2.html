@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Chuyển từ mét sang feet</title>
 </head>
 <body>
-$END$
+<input id="met" type="number" placeholder="Nhập vào số m">
+<button id="btn">Nhập</button>
+<h2>Kết quả là: </h2>
+<p id="ketqua"></p>
+<script>
+    function chuyenDoi() {
+        let nhapMet = parseInt(document.getElementById("met").value);
+        let feet = nhapMet * 3.2808 ;
+        document.getElementById("ketqua").innerHTML = nhapMet + " m thì bằng "+ feet + " f" ;
+    }
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", chuyenDoi);
+</script>
 </body>
 </html>
