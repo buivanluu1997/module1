@@ -20,11 +20,11 @@
             } else if (soA === 0 && soB !== 0) {
                 ketQua = "Phương trình vô nghiệm";
             } else if (soA !== 0 && soB === 0) {
-                ketQua = "Phương trình có nghiệm x = 0"
+                ketQua = "Phương trình có nghiệm x = 0";
             } else {
                 ketQua = "Phương trình có nghiệm x = "+ (-soB / soA);
             }
-            document.getElementById("ketqua").innerHTML = ketQua
+            document.getElementById("ketqua").innerHTML = ketQua;
         }
         let myBtn = document.getElementById("btn1");
         myBtn.addEventListener("click", check);
