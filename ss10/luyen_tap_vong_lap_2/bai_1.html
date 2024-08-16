@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In dãy Fibonaci</title>
+</head>
+<body>
+<script>
+    let n = +prompt("nhập n là số mà bạn muốn dừng: ")
+    let fibOne = 0;
+    let fibTwo = 1;
+    let fibThree;
+    document.write(fibOne + " ");
+    document.write(fibTwo + " ");
+    for (let i = 1; i <= n-2 ; i++) {
+        fibThree = fibOne + fibTwo;
+        document.write(fibThree + " ");
+        fibOne = fibTwo;
+        fibTwo = fibThree;
+    }
+</script>
+</body>
+</html>

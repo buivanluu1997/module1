@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lấy thông tin nhiệt độ...</title>
+</head>
+<body>
+<script>
+
+    while(true) {
+        let nhietDo = parseFloat(prompt("Nhập nhiệt độ hiện tại: "));
+        if (nhietDo > 100) {
+            alert("Bạn cần giảm nhiệt độ");
+        } else if (nhietDo < 20) {
+            alert("Bạn cần tăng nhiệt độ");
+        } else {
+            alert("Nhiệt độ hiện tại của bạn hợp lí");
+            break;
+        }
+    }
+</script>
+</body>
+</html>

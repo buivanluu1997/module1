@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số đầu tiên trong dãy fibonacci chia hết cho 5.</title>
+</head>
+<body>
+<script>
+    let fibOne = 0;
+    let fibTwo = 1;
+    let fiboThree;
+    while (true) {
+        fiboThree = fibOne + fibTwo ;
+        fibOne = fibTwo;
+        fibTwo = fiboThree;
+        if (fiboThree % 5 === 0) {
+            document.write("số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + fiboThree);
+            break;
+        }
+    }
+</script>
+</body>
+</html>

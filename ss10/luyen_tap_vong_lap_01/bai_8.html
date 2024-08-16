@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đoán số</title>
+</head>
+<body>
+<button onclick="star()">Bắt đầu</button>
+<script>
+    function star() {
+        let nhapSo = +prompt("Nhập vào số mà bạn muốn đoán: ");
+        let soNgauNhien = Math.floor(Math.random() * nhapSo);
+        let i = 0;
+        let max = 3;
+        while (i < max) {
+            let nhapGiaTri = +prompt("Nhập giá trị mà người dùng muốn đoán: ");
+            if (nhapGiaTri === soNgauNhien) {
+                document.write("Chúc mừng bạn. Bạn đã đoán đúng số");
+                break;
+            } else if (nhapGiaTri > soNgauNhien) {
+                alert("Số bạn đoán lớn hơn");
+            } else {
+                alert("Số bạn đoán bé hơn");
+            }
+            i++;
+            if (i === 3) {
+                alert("Bạn đã hết số lần đoán");
+            }
+        }
+    }
+</script>
+</body>
+</html>
