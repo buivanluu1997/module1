@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<script>
+    let input = prompt("Nhập vào mảng số nguyên có 10 phần tử (cách nhau bởi dấu phẩy)");
+    let array = input.split(",").map(Number);
+    array.sort((a, b) => b - a);
+    document.write(array.join(","));
+</script>
+</body>
+</html>

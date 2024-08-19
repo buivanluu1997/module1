@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let arr =[1,61,31,82,10,12,20,30];
+    let maxValue = arr[0];
+    let sum = 0;
+    let average;
+    let count = arr.length;
+    arr.forEach(function (value) {
+        if (value > maxValue) {
+            maxValue = value;
+        }
+        sum += value;
+    })
+    average = sum / count;
+    document.write("Giá trị lớn nhất là " + maxValue + "<br>");
+    document.write("Giá trị trung bình các phần tử trong mảng = " + average);
+</script>
+</body>
+</html>

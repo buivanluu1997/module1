@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    let input = prompt("Nhập vào 1 mảng số nguyên có 10 phần tử (cách nhau bởi dấu phẩy):");
+    let arr = input.split(",").map(Number);
+    let numbers = parseInt(prompt("Nhập vào số nguyên V:"));
+    let check = false;
+    for (let value of arr) {
+        if (value === numbers) {
+            check = true;
+            break;
+        }
+    }
+    if (check) {
+        document.write("V is in the array");
+    } else {
+        document.write("V is not in the array");
+    }
+</script>
+</body>
+</html>

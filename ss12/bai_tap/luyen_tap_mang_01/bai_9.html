@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<body>
+<script>
+    let inputA = prompt("Nhập vào 10 số nguyên (cách nhau bởi dấu phẩy)");
+    let arrayA = inputA.split(",").map(Number);
+    let inputB = prompt("Nhập vào 10 số nguyên (cách nhau bởi dấu phẩy)");
+    let arrayB = inputB.split(",").map(Number);
+    let arrayC = arrayA.concat(arrayB);
+    document.write(arrayC.join(","));
+</script>
+</body>
+</html>

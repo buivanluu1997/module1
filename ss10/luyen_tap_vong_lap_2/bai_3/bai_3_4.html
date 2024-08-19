@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in tam giác</title>
+</head>
+<body>
+<script>
+    let tamGiac = "";
+    for (let i = 1; i <= 5; i++) {
+        for (let j = 1; j <= 5; j++) {
+            if (i === 1 || j === 5 || j >= i) {
+                tamGiac += "*";
+            } else {
+                tamGiac += " ";
+            }
+        }
+        tamGiac += "<br>";
+    }
+    document.write("<pre>" + tamGiac + "</pre>");
+</script>
+</body>
+</html>

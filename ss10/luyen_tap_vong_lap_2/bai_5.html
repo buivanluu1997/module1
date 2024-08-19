@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+<script>
+    let tienGoc = 100000000;
+    let laiSuatThang = 0.005;
+    let tongTien;
+    tongTien = tienGoc;
+    let soThang = +prompt("Nhập số tháng bạn muốn tính ");
+    if (soThang <= 0) {
+        alert("Phải ít nhất 1 tháng bạn mới tính tiền lãi được");
+        prompt("Nhập số tháng bạn muốn tính");
+    } else {
+        for (let i = 0; i <= soThang; i++){
+            tongTien += tongTien * laiSuatThang;
+        }
+    }
+    document.write("Tổng tiền lãi lẫn tiền góc bạn gửi trong 12 tháng = " + tongTien + "Vnđ");
+</script>
+</body>
+</html>

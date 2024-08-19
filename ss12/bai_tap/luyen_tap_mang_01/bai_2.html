@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let arr =[1,23,4,54,7,96,12,14,15,18];
+    let maxValue = arr[0];
+    let maxIndex = 0;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > maxValue) {
+            maxValue = arr[i];
+            maxIndex = i;
+        }
+    }
+    document.write(maxValue + " là giá trị lớn nhất ở vị trí thứ " + maxIndex);
+</script>
+</body>
+</html>
