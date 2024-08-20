@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   //  let n = prompt("nhap vao do dai cua mang ");
+   //  while (n < 0 || n > 10 || parseInt(n) != n) {
+   //      n = prompt("nhap lai do dai mang so nguyen tu 1-10")
+   //  }
+   //  let arr = [];
+   //  while (arr.length < n) {
+   //      let inputNum = prompt("nhap mang so nguyen");
+   //      if (parseInt(inputNum) != inputNum) {
+   //          inputNum = prompt("Nhap lai mang so nguyen")
+   //      } else {
+   //          arr.push(parseInt(inputNum));
+   //      }
+   //  }
+   //  let numV = parseInt(prompt("nhap so nguyen V"));
+   //  let count = 0;
+   //  for (let i = 0; i < arr.length; i++) {
+   //      if (numV === arr[i]) {
+   //         count++;
+   //      }
+   //  }
+   // console.log(arr);
+
+   let arr = [1,2,2,2,3,4,5,6,2]
+   let n = 2 ;
+   let count = 0
+   for (let i = 0; i < arr.length; i++) {
+       if(arr[i] == n){
+           count ++;
+           for(let j = i ; j < arr.length ; j++)
+           {
+                arr[j] = arr[j +1];
+           }
+           arr[length - count] = 0
+
+           i--
+       }
+   }
+
+   console.log(arr)
+</script>
+</body>
+</html>

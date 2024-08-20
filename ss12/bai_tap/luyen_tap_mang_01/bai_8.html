@@ -6,10 +6,16 @@
 </head>
 <body>
 <script>
-    let input = prompt("Nhập vào mảng số nguyên có 10 phần tử (cách nhau bởi dấu phẩy)");
-    let array = input.split(",").map(Number);
+    let array = [];
+    for (let i = 0; i < 10; i++) {
+        let input = +prompt("Nhập vào mảng số nguyên có 10 phần tử " + i);
+        while ((parseInt(input) != input) || input === "") {
+            input = +prompt("nhập lại số nguyên");
+        }
+        array[i] = input;
+    }
     array.sort((a, b) => b - a);
-    document.write(array.join(","));
+    document.write(array);
 </script>
 </body>
 </html>

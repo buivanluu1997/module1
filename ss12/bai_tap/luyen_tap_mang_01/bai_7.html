@@ -6,15 +6,31 @@
 </head>
 <body>
 <script>
-    let input = prompt("Nhập vào mảng số nguyên có 10 phần tử (cách nhau bởi dấu phẩy)");
-    let array = input.split(",").map(Number);
-    let numbersV = parseInt(prompt("Nhập vào số nguyên V:"));
-    let index = array.indexOf(numbersV);
-    if (index !== -1) {
-        array.splice(index,1);
-        array.push(0);
+    let n = prompt("Nhap do dai cua mang");
+    while (n <= 0 || n > 10 || parseInt(n) != n) {
+       n = prompt("Nhap lai do dai tu 1-10");
     }
-    document.write("Mảng mới là: " + array.toString());
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+       let phanTu = prompt("nhap phan tu " + i);
+       arr.push(phanTu);
+    }
+    let soNguyenV = parseInt(prompt("Nhap so nguyen V"));
+    let kiemTra = false
+    for (let j = 0; j < arr.length; j++ ) {
+        if (arr[j] == soNguyenV) {
+            kiemTra = true;
+           for (let k = j; k < arr.length; k++){
+               arr[k] = arr[k+1];
+           }
+            arr[arr.length-1] = 0;
+        }
+    }
+    if (kiemTra) {
+        document.write("Xoa V = " + soNguyenV + " ra khoi mang " + arr);
+    } else {
+        document.write(soNguyenV +" k co trong mang");
+    }
 </script>
 </body>
 </html>

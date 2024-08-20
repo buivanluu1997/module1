@@ -8,18 +8,17 @@
 <script>
     let arr =[1,61,31,82,10,12,20,30];
     let maxValue = arr[0];
-    let sum = 0;
     let average;
-    let count = arr.length;
-    arr.forEach(function (value) {
-        if (value > maxValue) {
-            maxValue = value;
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > maxValue) {
+            maxValue = arr[i];
         }
-        sum += value;
-    })
-    average = sum / count;
-    document.write("Giá trị lớn nhất là " + maxValue + "<br>");
-    document.write("Giá trị trung bình các phần tử trong mảng = " + average);
+        sum += arr[i];
+    }
+    average = sum / (arr.length);
+    document.write(maxValue + " là giá trị lớn nhất" + "<br>");
+    document.write("Trung bình các phần tử trong mảng = " + average);
 </script>
 </body>
 </html>

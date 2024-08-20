@@ -6,12 +6,24 @@
 </head>
 <body>
 <script>
-    let inputA = prompt("Nhập vào 10 số nguyên (cách nhau bởi dấu phẩy)");
-    let arrayA = inputA.split(",").map(Number);
-    let inputB = prompt("Nhập vào 10 số nguyên (cách nhau bởi dấu phẩy)");
-    let arrayB = inputB.split(",").map(Number);
+    let arrayA = new Array(10);
+    for (let i = 0; i < arrayA.length; i++ ) {
+        let input1 = +prompt("nhap phan tu Array A " + i);
+        while ((parseInt(input1) != input1) || input1 ==+ "") {
+            input1 = +prompt("nhap lai phan tu phai la so nguyen")
+        }
+        arrayA[i] = input1;
+    }
+    let arrayB = new Array(10);
+    for (let j = 0; j < arrayB.length; j++ ) {
+        let input2 = +prompt("nhap phan tu array B " + j);
+        while ((parseInt(input2) != input2) || input2 === "") {
+            input2 = +prompt("nhap lai phan tu phai la so nguyen")
+        }
+        arrayB[j] = input2;
+    }
     let arrayC = arrayA.concat(arrayB);
-    document.write(arrayC.join(","));
+    document.write("mang C la: " + arrayC);
 </script>
 </body>
 </html>

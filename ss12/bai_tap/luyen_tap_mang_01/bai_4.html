@@ -6,10 +6,32 @@
 </head>
 <body>
 <script>
-    let input = prompt("Nhập vào một mảng số nguyên: ");
-    let arr = input.split(",").map(Number);
-    arr.reverse().join(" ,");
-    document.write(arr.toString());
+   let arr = [];
+   let n = prompt("nhập độ dài của mảng 1-10");
+   while (n < 0 || n > 10 || !(parseInt(n) == n)) {
+       n = prompt("nhập lại độ dài phải từ 1-10 và là số nguyên")
+   }
+   while (arr.length < n) {
+       let input = prompt("nhập mảng " + arr.length);
+       if (!(parseInt(input) == input)) {
+           input = prompt("Nhập lại mảng số nguyên");
+       } else {
+           arr.push(input);
+       }
+   }
+   let firt = 0;
+   let last = arr.length - 1;
+   while (firt < last){
+       let a = arr[firt];
+       arr[firt] = arr[last];
+       arr[last] = a;
+       firt++;
+       last--;
+   }
+   document.write("Đảo ngược các phần tử trong mảng: " + arr);
+   //Cách 2 dùng hàm đảo ngược reverse()
+   /*  arr.reverse();
+   document.write("Đảo ngược các phần tử trong mảng: " + arr);*/
 </script>
 </body>
 </html>
