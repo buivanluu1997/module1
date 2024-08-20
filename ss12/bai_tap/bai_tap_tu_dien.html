@@ -5,6 +5,28 @@
     <title>Bài tâp từ điển</title>
 </head>
 <body>
-
+<p>Nhập từ: </p>
+<input type="text" id="text">
+<button onclick="check()">Dịch</button>
+<p id="result"></p>
+<script>
+    function check() {
+        let arrEng = ["one", "tow", "three", "four", "five", "six", "seven", "eight", "nice", "ten"];
+        let arrViet = ["một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín", "mười"];
+        let inputText = document.getElementById("text").value;
+        let indexEng = -1;
+        let result = "";
+        for (let i = 0; i < arrEng.length; i++) {
+            if (inputText == arrEng[i]) {
+                indexEng = i;
+                break;
+            }
+        }
+        if (indexEng != -1) {
+            result = arrViet[indexEng];
+        }
+        document.getElementById("result").innerHTML = "kết quả: " + result;
+    }
+</script>
 </body>
 </html>
