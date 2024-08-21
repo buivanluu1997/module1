@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 6</title>
+</head>
+<body>
+<script>
+    let doDai = prompt("nhap do dai cua mang ki tu");
+    while (doDai <= 0 || doDai > 10 || parseInt(doDai) != doDai) {
+        doDai = prompt("nhap lai do dai( phai la so nguyen tu 1-10");
+    }
+    let array = []
+    for (let i = 0; i < doDai; i++) {
+        let inputM = prompt("nhap vao 1 mang ki tu " + i);
+        while (inputM.length != 1) {
+            inputM = prompt("khong hop le, nhap lai( phai la 1 ki tu)");
+        }
+        array.push(inputM);
+    }
+    document.write("mang cua ban la: ");
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === "-") {
+            array[i] = "_"
+        }
+    }
+    document.write("mang moi la " + array.join(" "));
+</script>
+</body>
+</html>

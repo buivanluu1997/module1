@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mang = [];
+    for (let i = 0; i < 10; i++) {
+        let nhapVao = prompt("nhap vao mang 10 ptu " + i);
+        while (parseInt(nhapVao) != nhapVao) {
+            nhapVao = prompt("nhap lai( phai la so nguyen)");
+        }
+        mang.push(nhapVao);
+    }
+    alert("mang da nhap la " + mang);
+    let songuyen = prompt("nhap vao ptu so nguyen V");
+    while (parseInt(songuyen) != songuyen) {
+        songuyen = prompt("nhap lai phai la so nguyen");
+    }
+    let kiemTra = false;
+    for (let i = 0; i < mang.length; i++ ) {
+        if (mang[i] == songuyen) {
+            kiemTra = true;
+        }
+    }
+    if (kiemTra) {
+        document.write("V is in the array" )
+    } else {
+        document.write("V is not in the array" )
+    }
+</script>
+</body>
+</html>

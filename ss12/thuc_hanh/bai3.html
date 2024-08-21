@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt("nhap do dai cua mang");
+    while (n < 0 || n > 10 || parseInt(n) != n) {
+        n = prompt("nhap lai");
+    }
+    let mang1 = []
+    for (let i = 0; i < n; i++) {
+        let nhapM = prompt("nhap ptu thu " +i);
+        while (parseInt(nhapM) != nhapM) {
+            nhapM = prompt("nhap lai")
+        }
+        mang1.push(nhapM);
+    }
+    for (let i = 0; i < mang1.length; i++) {
+        mang1.sort((a,b) => b-a);
+    }
+    document.write(mang1);
+</script>
+</body>
+</html>

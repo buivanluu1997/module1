@@ -6,12 +6,39 @@
 </head>
 <body>
 <script>
-    let arr =  [ 'c', 's', 'c', '2', '6', '1' ]
-    let arr2 =[];
-    for (let i = arr.length - 1; i >= 0; i--) {
-        arr2.push(arr[i]);
-    }
-    document.write(arr2);
+  let n = prompt("nhap vao do dai cua mang ki tu");
+  while (n < 0 || n >10 || parseInt(n) != n) {
+      n = prompt("nhap lai do dai(do dai pha la so nguyen tu 1-10)");
+  }
+  let arr = [];
+  for (let i = 0; i < n; i++) {
+      let inputs = prompt("nhap vao 1 mang ki tu " + i);
+      while (inputs.length != 1) {
+          inputs = prompt("nhap lai mang ki tu( nhap mang 1 ki tu duy nhat)");
+      }
+      arr.push(inputs);
+  }
+  alert("mang vua nhap la " + arr);
+  let firt = 0;
+  let last = arr.length - 1;
+  while (firt < last) {
+      let news = arr[firt];
+      arr[firt] = arr[last];
+      arr[last] = news;
+      firt++;
+      last--;
+  }
+  document.write("mang moi la: " + arr)
+
+  // cach 2:
+
+  /*let arr2 = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+      arr2.push(arr[i]);
+  }
+  document.write("mang moi la " + arr2);*/
+
+
 </script>
 </body>
 </html>

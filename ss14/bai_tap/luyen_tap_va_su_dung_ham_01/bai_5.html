@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+<script>
+    function timKiem (a) {
+        let arrayA = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
+        let arrayB = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+        let index = -1;
+        for (let i = 0; i < arrayA.length; i++) {
+            if (arrayA[i] === a) {
+               index = i
+            }
+        }
+        return arrayB[index];
+    }
+    let ketQua = timKiem("Deneb");
+    document.write(ketQua);
+</script>
+</body>
+</html>

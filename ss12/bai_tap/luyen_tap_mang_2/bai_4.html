@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết một chương trình để đếm số từ trong một chuỗi</title>
+</head>
+<body>
+<script>
+    let str = ("  co  cong mai    sat có ngay nen kim");
+    let count = 0;
+    for (let i = 0; i < str.length; i++ ) {
+        if (str[i] == " ") {
+            if (str[i+1] != " " && str[i+1]) {
+                count++;
+            }
+        }
+    }
+    if (str[0] == " ") {
+        document.write("có " + count + " phần tử");
+    } else {
+        document.write("có " + (count + 1) + " phần tử")
+    }
+</script>
+</body>
+</html>

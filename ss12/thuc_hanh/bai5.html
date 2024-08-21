@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let mangA = [32,4,5,12,3,5,6,65,34,89];
+    let demA = 0;
+    for (let i = 0; i < mangA.length; i++) {
+        if (mangA[i] >= 10) {
+            demA++;
+        }
+    }
+    document.write("co " + demA + " so >= 10" + "<br>")
+    let index = 0;
+    let max = mangA[0];
+    for (let i = 0; i < mangA.length; i++) {
+        if (mangA[i] > max) {
+            max = mangA[i];
+            index = i;
+        }
+    }
+    document.write("gia tri lon nhat laa " + max + " tai vi tri " + index + "<br>");
+
+</script>
+</body>
+</html>

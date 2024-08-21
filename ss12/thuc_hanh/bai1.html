@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = [];
+    for (let i = 0; i < 10; i++) {
+        let inputs = prompt("nhap vao mang so nguyen co 10 phan tu, bat dau ptu " + i);
+        while (parseInt(inputs) != inputs) {
+            inputs = prompt("nhap lai")
+        }
+        arr1.push(inputs);
+    }
+    alert("mang vua nhap la " + arr1);
+    let numberV = parseInt(prompt("nhap so nguyen V "));
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] == numberV) {
+            for (let j = i; j < arr1.length; j++) {
+                arr1[j] = arr1[j + 1];
+            }
+            arr1[arr1.length - 1] = 0;
+            i--;
+        }
+    }
+    document.write(arr1);
+</script>
+</body>
+</html>
