@@ -6,16 +6,27 @@
 </head>
 <body>
 <script>
-    function duyenKyTu () {
-
+    function duyetKyTu (kyTu) {
+        let charArray = ['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd'];
+        let demKyTu = 0;
+        let kiemTra = false
+        let ketQua;
+        for (let i = 0; i < charArray.length; i++) {
+            if (kyTu == charArray[i]) {
+                kiemTra = true;
+                demKyTu++;
+            }
+        }
+        if (kiemTra) {
+            ketQua = (" có " + demKyTu + " ký tự " + kyTu);
+            return ketQua;
+        } else {
+            ketQua = -1;
+            return ketQua;
+        }
     }
-    let arr1 = [];
-    let i = 0;
-    do {
-        let kyTu = prompt("nhập vào ký tự")
-        i++
-    } while (i <= 6);
-    arr1.push(kyTu())
+    let kyTu = prompt("Nhập vào 1 kí tự bất kì");
+    document.write(duyetKyTu(kyTu));
 </script>
 </body>
 </html>
