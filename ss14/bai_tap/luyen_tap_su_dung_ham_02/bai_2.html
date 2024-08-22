@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function dienTichHinhTron(r) {
+        let pi = 3.14;
+        let A = pi * Math.pow(r,2);
+        return A;
+    }
+    function chuViHinhTron(r) {
+        let pi = 3.14;
+        let C = 2 * pi * r;
+        return C;
+    }
+    let r = +prompt("nhập vào bán kính r");
+    document.write("Diện tích hình chữ nhật = " + dienTichHinhTron(r) + "<br>" );
+    document.write("Chu vi hình chữ nhật = " + chuViHinhTron(r));
+</script>
+</body>
+</html>

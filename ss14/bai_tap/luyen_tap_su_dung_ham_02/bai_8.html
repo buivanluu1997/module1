@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<script>
+    function daoNguoc (array1) {
+        return array1.reverse();
+    }
+    let array1 = [];
+    for (let i = 0; i < 5; i++) {
+        let nhap1 = prompt("Nhập vào mảng số nguyên từ 5 phần tử " + i);
+        while (nhap1 != parseInt(nhap1)) {
+            nhap1 = prompt("nhập lại");
+        }
+        array1.push(nhap1);
+    }
+    alert("Mảng bạn vừa nhập là: " + array1);
+   document.write(daoNguoc(array1));
+</script>
+</body>
+</html>

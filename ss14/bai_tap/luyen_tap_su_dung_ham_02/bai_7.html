@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 7</title>
+</head>
+<body>
+<script>
+    function transposition(a,b) {
+        let item = a;
+        a = b;
+        b = item;
+        return [a,b];
+    }
+    let result1 = transposition(5,10)
+    document.write("a = " + result1[0], " b = " + result1[1]);
+</script>
+</body>
+</html>

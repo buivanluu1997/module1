@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function finMaxNumber(n) {
+        let arr = n.toString().split("");
+        if (arr.length === 4) {
+            if (arr[0] > arr[1]) {
+                let min = arr[1];
+                let index = 1;
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < min) {
+                        min = arr[i]
+                        index = i;
+                    }
+                }
+                arr.splice(index,1);
+            } else {
+                arr.splice(0,1);
+            }
+            return arr;
+        } else {
+            return -1;
+        }
+    }
+    let n = Number(prompt("nhap n"));
+    let result1 = finMaxNumber(n).join("");
+    alert(result1);
+</script>
+</body>
+</html>

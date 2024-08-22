@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* let nhapA = prompt("nhap ten ngoi sao")
+    function kiemTra(nhapA) {
+        let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+        let indexA = -1;
+        for (let i = 0; i < arr1.length; i++) {
+           if (arr1[i] === nhapA) {
+               indexA = i;
+               return arr2[indexA];
+           }
+        }
+        return "khong tim thay ngoi sao";
+    }
+    kiemTra(nhapA);*/
+   let nhapA = prompt("nhap ten ngoi sao");
+   function kiemTra(nhapA) {
+       let arr1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+       let arr2 = ["Ursa Minor", "Taurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+       for (let i = 0; i < arr1.length; i++) {
+           if (arr1[i] === nhapA) {
+               return arr2[i];
+           }
+       }
+       return "khong tim thay ngoi sao";
+   }
+
+   let result = kiemTra(nhapA);
+   console.log(result);
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai tap</title>
+</head>
+<body>
+<script>
+    function kiemTra(x, y, z) {
+        if (x > 0 && y > 0 && z > 0) {
+            if ((x + y > z) && (x + z > y) && (y + z > x)) {
+                if ((Math.pow(x, 2) === Math.pow(y, 2) + Math.pow(z, 2)) || (Math.pow(y, 2) === Math.pow(x, 2) + Math.pow(z, 2)) || (Math.pow(z, 2) === Math.pow(x, 2) + Math.pow(y, 2))) {
+                    alert("la 3 canh cua 1 tam giac vuong");
+                } else {
+                    alert("chi la 3 canh cua 1 tam giac");
+                }
+            } else {
+                alert("khong phai la canh cua 1 tam giac");
+            }
+        } else {
+            alert("khong phai la canh cua 1 tam giac");
+        }
+    }
+    let inputX = +prompt("nhap canh x: ");
+    while (Number(inputX) !== inputX) {
+        inputX = +prompt("nhap lai x");
+    }
+    let inputY = +prompt("nhap canh y: ");
+    while (Number(inputY) !== inputY) {
+        inputY = +prompt("nhap lai y");
+    }
+    let inputZ = +prompt("nhap canh z: ");
+        while (Number(inputZ) !== inputZ) {
+            inputZ = +prompt("nhap lai y");
+        }
+    kiemTra(inputX, inputY, inputZ);
+</script>
+</body>
+</html>

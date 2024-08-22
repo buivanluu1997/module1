@@ -6,19 +6,24 @@
 </head>
 <body>
 <script>
-    function timKiem (a) {
+    function timKiem (star) {
         let arrayA = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"]
         let arrayB = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
         let index = -1;
         for (let i = 0; i < arrayA.length; i++) {
-            if (arrayA[i] === a) {
-               index = i
+            if (arrayA[i] === star) {
+                index = i;
+                break;
             }
         }
-        return arrayB[index];
+        if (index === -1) {
+            alert("Ngôi sao " + star + " Không có chòm sao tương ứng")
+        } else {
+            alert("Ngôi sao " + star + " tương ứng với chòm sao " + arrayB[index])
+        }
     }
-    let ketQua = timKiem("Deneb");
-    document.write(ketQua);
+    let star = prompt("nhập ngôi sao bạn muốn tìm kiếm chòm sao tương ứng");
+    let ketQua = timKiem(star);
 </script>
 </body>
 </html>
