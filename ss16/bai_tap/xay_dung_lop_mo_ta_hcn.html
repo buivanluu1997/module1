@@ -6,6 +6,8 @@
 </head>
 <body>
 <canvas id="id-canvas"></canvas>
+<div id="dientich"></div>
+<div id="chuvi"></div>
 <script>
     class Rectangle {
         constructor(chieuDai, chieuRong) {
@@ -34,8 +36,8 @@
     let rectangle = new Rectangle(50, 100);
     rectangle.setChieuDai(200);
     rectangle.setChieuRong(100);
-    document.write("Diện tích hình chữ nhật = " + rectangle.getDienTich() + "<br>");
-    document.write("Chu vi hình chữ nhật = " + rectangle.getChuVi());
+    document.getElementById("dientich").innerHTML = "Diện tích hình chữ nhật = " + rectangle.getDienTich() + "<br>";
+    document.getElementById("chuvi").innerHTML = "Chu vi hình chữ nhật = " + rectangle.getChuVi();
     let canvas = document.getElementById("id-canvas");
     let ctx = canvas.getContext("2d");
     ctx.fillStyle = "#ba2509";
