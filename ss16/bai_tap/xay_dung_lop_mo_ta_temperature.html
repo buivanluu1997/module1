@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(doC) {
+            this.doC = doC;
+            this.doF = (9 * doC / 5) + 32 ;
+            this.doK = doC + 273;
+        }
+        setDoC(doC) {
+            this.doC = doC;
+            this.doF = (9 * doC / 5) + 32 ;
+            this.doK = doC + 273;
+        }
+        setDoF(doF) {
+            this.doF = doF;
+            this.doC = ((doF - 32) * 5) / 9;
+            this.doK = this.doC + 273
+        }
+        setDoK(doK) {
+            this.doK = doK;
+            this.doC = doK - 273;
+            this.doF = (9 * this.doC / 5) + 32;
+        }
+        getDoC() {
+            return this.doC;
+        }
+        getDoF() {
+            return this.doF;
+        }
+        getDoK() {
+            return this.doK;
+        }
+    }
+    let temperature = new Temperature(25);
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoF() + "độ F" + "<br>");
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoK() + "độ K" + "<br>");
+    temperature.setDoK(325)
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoF() + "độ F" + "<br>");
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoK() + "độ K");
+</script>
+</body>
+</html>

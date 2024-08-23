@@ -8,38 +8,38 @@
             width: 500px;
             border-collapse: collapse;
         }
-
-        td, th {
-            border: 1px solid #737373;
+        td,th {
+            border: 1px solid black;
             padding: 5px;
+            text-align: left;
         }
-
-        thead {
-            background-color: #2f2fb6;
+        thead{
+            background-color: blueviolet;
             color: white;
         }
-
         .btn-delete {
-            background-color: red;
+            background-color: #aa1b1b;
             color: white;
         }
     </style>
 </head>
 <body>
-<input type="text" id="name-product">
+<h2>Add New Product</h2>
+<input type="text" placeholder="New Product" id="name-Product">
 <input type="text" id="id-product" hidden>
 <button onclick="addProduct()">Add</button>
 <button onclick="editProduct()">Edit</button>
+<h2>Display All Product</h2>
 <table>
     <thead>
     <tr>
-        <th>#</th>
+        <th>Stt</th>
         <th>Name</th>
         <th></th>
     </tr>
     </thead>
     <tbody id="list-product"></tbody>
 </table>
-<script src="js.js"></script>
+<script src="ung_dung_qlsp.js"></script>
 </body>
 </html>

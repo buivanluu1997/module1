@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí sản phẩm</title>
+    <style>
+        table {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 25px 0;
+                font-size: 18px;
+                text-align: left;
+            }
+            td,th {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+            }
+            thead{
+                background-color: blueviolet;
+                color: white;
+            }
+            .btn-edit {
+                background-color: #aa1b1b;
+            }
+        }
+    </style>
+</head>
+<body>
+<h2>Add New Product</h2>
+<input type="text" placeholder="New Product" id="themMoi">
+<button onclick="update()">Update</button>
+<button onclick="themSanPham()">Add</button>
+<h2>Display All Product</h2>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<script>
+    let danhSach = ["Sony Xperia","SamSung Galaxy", "Nokia 6", "Xiaomi Note 4", "Apple Iphone 6s"];
+    let idupdate = undefined;
+    let inputText = document.getElementById("themMoi")
+
+    function hienThiDanhSach () {
+        let text = "";
+        danhSach.forEach((item,index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index + 1;
+            text += "</td>";
+            text += "<td>";
+            text += item;
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-edit" onclick="suaSanPham(${index})" >Edit</button>`;
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-xoa" onclick="xoaSanPham(${index})" >Delete</button>`;
+            text += "</td>"
+            text += "</tr>"
+        })
+        document.getElementById("tbody").innerHTML = text;
+    }
+    hienThiDanhSach();
+    function themSanPham() {
+        danhSach.push(inputText.value);
+        hienThiDanhSach();
+        inputText.value = "";
+        idupdate = undefined;
+    }
+    function xoaSanPham(a) {
+        danhSach.splice(a,1);
+        hienThiDanhSach();
+    }
+    function suaSanPham(b) {
+       inputText.value = danhSach[b];
+       idupdate = b;
+    }
+    function update() {
+        if (idupdate !== undefined) {
+            danhSach[idupdate] = inputText.value;
+            hienThiDanhSach();
+            inputText.value = "";
+            idupdate = undefined;
+        }
+    }
+</script>
+</body>
+</html>
