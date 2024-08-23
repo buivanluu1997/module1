@@ -38,11 +38,11 @@
         }
     }
     let temperature = new Temperature(25);
-    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoF() + "độ F" + "<br>");
-    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoK() + "độ K" + "<br>");
-    temperature.setDoK(325)
-    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoF() + "độ F" + "<br>");
-    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoK() + "độ K");
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoF() + " độ F" + "<br>");
+    document.write("Với " + temperature.doC + " độ C " + " = " + temperature.getDoK() + " độ K" + "<br>");
+    temperature.setDoK(325);
+    document.write("Với " + temperature.doK + " độ Kevin " + " = " + temperature.getDoF() + " độ F" + "<br>");
+    document.write("Với " + temperature.doK + " độ Kevin " + " = " + temperature.getDoC() + " độ C");
 </script>
 </body>
 </html>

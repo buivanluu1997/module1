@@ -22,12 +22,12 @@
     }
     let temperature = new Temperature(25);
     let doF = temperature.getDoF();
-    document.write(temperature.doC + "độ C = " + doF + "<br>");
+    document.write(temperature.doC + "độ C = " + doF +" độ F" + "<br>");
     let doK = temperature.getDoK();
-    document.write(temperature.doC + "độ C = " + doK + "<br>");
-    temperature.setDoC(1);
-    document.write(temperature.getDoF() + "<br>")
-    document.write(temperature.getDoK())
+    document.write(temperature.doC + "độ C = " + doK + " độ K" + "<br>");
+    temperature.setDoC(20);
+    document.write(temperature.doC + "độ C = " + temperature.getDoF() + " độ F" + "<br>");
+    document.write(temperature.doC + "độ C = " + temperature.getDoK() + " độ K" + "<br>");
 </script>
 </body>
 </html>
