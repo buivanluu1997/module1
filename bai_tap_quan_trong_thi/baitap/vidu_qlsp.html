@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+        td,th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        thead {
+            background-color: #061071;
+            color: white;}
+        .btn-xoa {
+            background-color: #c80a20;
+            color: white;}
+        .btn-sua {
+            background-color: #3ef111;
+            color: #0b0b0b;}
+    </style>
+</head>
+<body>
+<h1>Cửa hàng tiện lợi</h1>
+<input id="nhapSanPham" type="text" placeholder="Nhập sản phẩm">
+<button onclick="themVaoSanPham()">Thêm vào</button>
+<button onclick="capNhatSanPham()">Cập nhật</button>
+<p><br></p>
+<table>
+    <thead>
+    <tr>
+        <th>Stt</th>
+        <th>Tên sản phẩm</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="phanThan"></tbody>
+</table>
+<script>
+    let danhSachSanPham = ["Quả Táo", "Quả Dâu", "Quả Ổi", "Quả Đào", "Quả Xoài"];
+    let index = undefined;
+    function hienThiDanhSach() {
+        let danhSach = "";
+        for (let i = 0; i < danhSachSanPham.length; i++) {
+            danhSach += "<tr>";
+            danhSach += "<td>";
+            danhSach += i + 1;
+            danhSach += "</td>"
+            danhSach += "<td>";
+            danhSach += danhSachSanPham[i];
+            danhSach += "</td>";
+            danhSach += "<td>";
+            danhSach += `<button class="btn-sua" onclick="suaSanPham(${i})">Sửa</button>`;
+            danhSach += "</td>"
+            danhSach += "<td>";
+            danhSach += `<button class="btn-xoa" onclick="xoaSanPham(${i})">Xoá</button>`;
+            danhSach += "</td>";
+            danhSach += "</tr>";
+        }
+        document.getElementById("phanThan").innerHTML = danhSach;
+    }
+    hienThiDanhSach();
+    function themVaoSanPham() {
+        let sanPham = document.getElementById("nhapSanPham").value;
+        if (sanPham) {
+            danhSachSanPham.push(sanPham);
+            hienThiDanhSach();
+            document.getElementById("nhapSanPham").value = "";
+            index = undefined;
+        } else {
+            alert("Bạn phải nhập sản phẩm vào");
+        }
+    }
+    function xoaSanPham(i) {
+        if (confirm("Bạn thật sự muốn xoá hay không?")) {
+            danhSachSanPham.splice(i,1);
+            hienThiDanhSach();
+        }
+    }
+    function suaSanPham(i) {
+        document.getElementById("nhapSanPham").value = danhSachSanPham[i];
+        index = i;
+    }
+    function capNhatSanPham() {
+        danhSachSanPham[index] = document.getElementById("nhapSanPham").value;
+        hienThiDanhSach();
+        document.getElementById("nhapSanPham").value = "";
+        index = undefined;
+    }
+</script>
+</body>
+</html>

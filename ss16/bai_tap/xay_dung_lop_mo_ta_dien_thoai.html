@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả điện thoại</title>
+</head>
+<body>
+<script>
+    class Mobie {
+        constructor(pin, dangSoanThao, hopThuDen, daGui) {
+            this.pin = 100;
+            this.dangSoanThao = "";
+            this.hopThuDen = [];
+            this.daGui = [];
+            this.batTat = false;
+        }
+        kiemTraBatTatDT(batTat) {
+            return this.batTat ? "Điện thoại bật" : "Điện thoại tắt";
+        }
+        batDienThoai() {
+            if (!this.batTat) {
+                this.batTat = true;
+                alert("điện thoại đang bật");
+            } else {
+                alert("điện thoại đã bật");
+            }
+        }
+        tatDienThoai() {
+            if (this.batTat) {
+                this.batTat = false;
+                alert("điện thoại bạn đang tắt");
+            } else {
+                alert("điện thoại bạn đã tắt");
+            }
+        }
+    }
+</script>
+</body>
+</html>
