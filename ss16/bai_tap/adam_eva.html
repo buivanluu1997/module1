@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Tao {
+        constructor() {
+            this.trongLuong = 10
+        }
+        giam() {
+            this.trongLuong -- ;
+        }
+        kiemTraKhoiLuong (){
+            return this.trongLuong > 0
+        }
+        layRaTrongLuong(){
+            return this.trongLuong
+        }
+
+    }
+
+    class ConNguoi {
+        constructor(ten,gioiTinh, trongLuong) {
+            this.ten = ten;
+            this.gioiTinh = gioiTinh;
+            this.canNang = trongLuong;
+        }
+        isMale (){
+            return this.gioiTinh
+        }
+        setGender(gender)
+        {
+            this.gioiTinh = gender;
+        }
+        checkApple (quaTao){
+            return quaTao.kiemTraKhoiLuong();
+        }
+        eat(quaTao) {
+            if(quaTao.kiemTraKhoiLuong() == true){
+                this.canNang ++
+                quaTao.giam();
+            }
+        }
+        say(sayString){
+            console.log(sayString)
+        }
+
+        getName(){
+            return this.ten
+        }
+        setName(name)
+        {
+            this.name = name
+        }
+        getWeight(){
+            return this.canNang;
+        }
+        setWeight(weight){
+            this.canNang = weight
+
+        }
+
+    }
+    let apple = new Tao()
+    let bin = new ConNguoi("Bui Van Luu",true, 50 )
+    bin.setWeight(60)
+    console.log('Can Nang La')
+    console.log(bin.getWeight())
+
+</script>
+</body>
+</html>
