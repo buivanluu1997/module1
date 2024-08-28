@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Kiểm tra số nguyên tố hay k</title>
 </head>
 <body>
-$END$
+<script>
+    function kiemTraSoNguyenTo(n) {
+      /*  let ketQua;
+        let demUoc = 0;
+        if (n <= 0) {
+            ketQua = n + " không phải là số nguyên tố";
+            return ketQua;
+        } else {
+            for (let i = 1; i <= n; i++) {
+                if (n % i === 0) {
+                    demUoc++;
+                }
+            }
+            if (demUoc === 2) {
+                ketQua = n + " là số nguyên tố";
+                return ketQua;
+            } else {
+                ketQua = n + " không phải là số nguyên tố";
+                return ketQua;
+            }
+        }*/
+
+
+        let kiemTra = true;
+        let ketQua;
+        if (n <= 1) {
+            ketQua = n + " khong phai la so nguyen to";
+            return ketQua;
+
+        }
+        for (let j = 2; j < n; j++) {
+            if (n % j === 0) {
+                kiemTra = false;
+            }
+        }
+        if (kiemTra) {
+            ketQua = n + " la so nguyen to";
+        } else {
+            ketQua = n + " k phai la so nguyen to";
+        }
+        return ketQua;
+    }
+    let n;
+    do {
+        n = prompt("Nhập số cần kiểm tra");
+    } while (parseInt(n) != n);
+    document.write(kiemTraSoNguyenTo(n));
+</script>
 </body>
 </html>

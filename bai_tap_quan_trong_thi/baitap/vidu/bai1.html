@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
 </head>
 <body>
-$END$
+<script>
+    let n;
+    do {
+        n = prompt("Nhập độ dài của mảng");
+    } while (n <= 0 || n >= 20 || parseInt(n) != n)
+    n = parseInt(n);
+    let arr = []
+    for (let i = 0; i < n; i++) {
+        let nhapMang = prompt("Nhập mảng " + i);
+        while (isNaN(nhapMang)) {
+            nhapMang = prompt("Nhập mảng " + i);
+        }
+        arr.push(nhapMang);
+    }
+    alert("Mảng bạn vừa nhập là: " + arr + " có độ dài là " + arr.length);
+    let kiemTra = true;
+    if (arr.length <= 2) {
+        kiemTra = false;
+    } else {
+        let a = arr[1] - arr[0];
+        for (let i = 1; i < arr.length - 1; i++) {
+            if (arr[i + 1] - arr[i] !== a) {
+                kiemTra = false;
+                break;
+            }
+        }
+    }
+    if (kiemTra) {
+        alert("Mảng  tăng đần đều: OK");
+    } else {
+        alert("Mảng không tăng đần đều: NO");
+    }
+
+</script>
 </body>
 </html>

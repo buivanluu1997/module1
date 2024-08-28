@@ -1,10 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #215904;
+            border-color: white;
+        }
+
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: bisque;
+            color: #0b0b0b;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Company Name</th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<button class="btn" onclick="handleClickAddBtn()">Add Product</button>
+<script>
+    class Phone {
+        constructor(id, name, price, companyName) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.companyName = companyName;
+        }
+
+        getId() {
+            return this.id
+        }
+
+        getName() {
+            return this.name
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getPrice() {
+            return this.price
+        }
+
+        setPrice(price) {
+            this.price = price
+        }
+
+        getCompanyName() {
+            return this.companyName
+        }
+
+        setCompanyName(name) {
+            this.companyName = name
+        }
+    }
+
+    let arrayProduct = [];
+
+    function renderTable() {
+        let text = ''
+        arrayProduct.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += item.getId();
+            text += "</td>";
+            text += "<td>";
+            text += item.getName();
+            text += "</td>";
+            text += "<td>";
+            text += item.getPrice();
+            text += "</td>";
+            text += "<td>";
+            text += item.getCompanyName();
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("tbody").innerHTML = text;
+    }
+
+    renderTable();
+
+    function handleClickAddBtn() {
+        let id = +prompt("Nhập id sản phẩm");
+        if (checkExist(id) === true) {
+            alert("Da ton tai id trong danh sach")
+        } else {
+            let name = prompt("Nhập tên sản phẩm");
+            let price = +prompt("Nhập giá sản phẩm");
+            let companyName = prompt("Nhập tên công ty");
+            let newProduct = new Phone(id, name, price, companyName);
+            arrayProduct.push(newProduct);
+            sortArrayProduct()
+            renderTable();
+        }
+    }
+
+    function checkExist(id) {
+        for (let i = 0; i < arrayProduct.length; i++) {
+            if (id === arrayProduct[i].getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function sortArrayProduct() {
+        arrayProduct.sort((a, b) => a.getName().localeCompare(b.getName()));
+    }
+</script>
 </body>
 </html>

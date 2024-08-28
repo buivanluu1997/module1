@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        tbody{
+            background-color: #c0f4f4;
+            color: #0b0b0b;
+        }
+        h2 {
+            color: #23085a;
+        }
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #1b13a3;
+            border-color: white;
+        }
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+        .btn-themSanPham {
+            background-color: #3ef111;
+            color: #0b0b0b;
+        }
+        .btn-xapXep {
+            background-color: #061071;
+            color: white;
+        }
+        .btn-xoa {
+            background-color: #c80a20;
+            color: white;
+        }
+    </style>
+    </style>
+</head>
+<body>
+<h2>Danh sách sản phẩm</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Stt</th>
+        <th>Mã sản pẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Tên công ty</th>
+        <th>Giá sản phẩm</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="danhSachSP">
+    </tbody>
+</table>
+<button class="btn-themSanPham" onclick="themSanPham()">Thêm sản phẩm</button>
+<button class="btn-xapXep" onclick="sapXepGiaSanPham()">Săp xếp giá sản phẩm</button>
+<script>
+    class DienThoai {
+        constructor(maSanPham, tenSanPham, tenCongTy, giaSanPham) {
+            this.maSanPham = maSanPham;
+            this.tenSanPham = tenSanPham;
+            this.tenCongTy = tenCongTy;
+            this.giaSanPham = giaSanPham;
+        }
+        getMaSanPham() {
+            return this.maSanPham;
+        }
+        setMaSanPham(maSanPham) {
+            this.maSanPham = maSanPham;
+        }
+        getTenSanPham() {
+            return this.tenSanPham;
+        }
+        setTenSanPham(tenSanPham) {
+            this.tenSanPham = tenSanPham;
+        }
+        getTenCongTy() {
+            return this.tenCongTy;
+        }
+        setTenCongTy(tenCongTy) {
+            this.tenCongTy = tenCongTy;
+        }
+        getGiaSanPham() {
+            return this.giaSanPham;
+        }
+        setGiaSanPham(giaSanPham) {
+            this.giaSanPham = giaSanPham;
+        }
+    }
+    let danhSachDienThoai = [
+        new DienThoai(122, "Iphone 14 Promax", "Apple", 20000000),
+        new DienThoai(124, "Iphone 15 Promax", "Apple", 30000000),
+        new DienThoai(134, "SamSung Note 10", "SamSung", 25000000),
+        new DienThoai(144, "XiaoMi 12Pro", "XiaoMi", 27000000)]
+    function hienThiDanhSachDienThoai() {
+        let text = "";
+        danhSachDienThoai.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index+1;
+            text += "</td>";
+            text += "<td>";
+            text += item.maSanPham;
+            text += "</td>";
+            text += "<td>";
+            text += item.tenSanPham;
+            text += "</td>";
+            text += "<td>";
+            text += item.tenCongTy
+            text += "</td>";
+            text += "<td>";
+            text += item.giaSanPham + " Vnđ";
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-xoa" onclick="xoaSanPham(${index})">Xoá Sản Phẩm</button`;
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("danhSachSP").innerHTML = text;
+    }
+    hienThiDanhSachDienThoai();
+    function themSanPham() {
+        let maSanPham = prompt("Nhập mã sản phẩm");
+        let tenSanPham = prompt("Nhập tên sản phẩm");
+        let tenCongTy = prompt("Nhập tên công ty");
+        let giaSanPham = prompt("Nhập giá sản phẩm");
+        let dienThoaiMoi = new DienThoai(maSanPham, tenSanPham, tenCongTy, giaSanPham);
+        danhSachDienThoai.push(dienThoaiMoi);
+        hienThiDanhSachDienThoai();
+    }
+    function sapXepGiaSanPham() {
+        danhSachDienThoai.sort((a,b) => a.getGiaSanPham()-b.getGiaSanPham());
+        hienThiDanhSachDienThoai();
+    }
+    function xoaSanPham(index) {
+        if (confirm("Bạn thật sự muốn xoá không")) {
+            danhSachDienThoai.splice(index,1);
+        }
+        hienThiDanhSachDienThoai();
+    }
+</script>
+</body>
+</html>

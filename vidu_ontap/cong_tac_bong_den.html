@@ -1,10 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<script>
+    class ElectricLamp {
+        constructor(status) {
+            this.status = status;
+        }
+        turnOff() {
+            this.status = false;
+        }
+        turnOn() {
+            this.status = true;
+        }
+    }
+    class SwitchButton {
+        constructor() {
+            this.status = false ;
+        }
+        connectToLamp (den){
+            this.lamp = den;
+        }
+        switchOff() {
+            this.status = false
+            this.lamp.turnOff();
+        }
+        switchOn() {
+            this.status = true;
+            this.lamp.turnOn();
+        }
+    }
+
+    let button = new SwitchButton();
+    let bongDen = new ElectricLamp(false);
+    button.connectToLamp(bongDen);
+    console.log(button);
+    button.switchOn();
+    console.log("Sau khi bat den")
+    console.log(button)
+
+
+</script>
 </body>
 </html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        tbody{
+            background-color: #c0f4f4;
+            color: #0b0b0b;
+            font-family: VnArial;
+            font-weight: bold;
+        }
+        h2 {
+            color: #23085a;
+        }
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #1b13a3;
+            border-color: white;
+        }
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+        .btn-add {
+            background-color: gold;
+        }
+        .btn-sort {
+            background-color: greenyellow;
+        }
+        .btn-delete {
+            background-color: #c80a20;
+            color: white;
+        }
+        </style>
+</head>
+<body>
+<h2>Phone Product List</h2>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Company Name</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<button class="btn-add" onclick="addProduct()">Add Product</button>
+<button class="btn-sort" onclick="sortProductName()">Sort product names</button>
+<script>
+    class Phone {
+        constructor(id, name, companyName, price) {
+            this.id = id;
+            this.name = name;
+            this.companyName = companyName;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getCompanyName() {
+            return this.companyName;
+        }
+
+        setCompanyName(companyName) {
+            this.companyName = companyName;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+    }
+
+    let listPhone = [new Phone(124, "Iphone 14 promax", "Apple", 1300),
+        new Phone(134, "SamSung Note 10", "SamSung", 1100),
+        new Phone(141, "Xiaomi Note 13 promax", "Xiaomi", 800),
+        new Phone(124, "Iphone 15 promax", "Apple", 1700)];
+
+    function renderListPhone() {
+        let text = "";
+        listPhone.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index + 1;
+            text += "</td>";
+            text += "<td>";
+            text += item.id;
+            text += "</td>";
+            text += "<td>";
+            text += item.name;
+            text += "</td>";
+            text += "<td>";
+            text += item.companyName;
+            text += "</td>";
+            text += "<td>";
+            text += item.price + " $";
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-delete" onclick="deleteProduct(${index})">Delete</button>`;
+            text += "</td>";
+            text += "</tr>"
+        })
+        document.getElementById("tbody").innerHTML = text;
+    }
+    renderListPhone();
+    function addProduct() {
+        let id = prompt("Enter product Id");
+        let name = prompt("Enter product Name");
+        let companyName = prompt("Enter company name");
+        let price = prompt("Enter product price");
+        let phone = new Phone(id, name, companyName, price);
+        listPhone.push(phone);
+        renderListPhone();
+    }
+    function sortProductName() {
+        listPhone.sort((a,b) => a.getName().localeCompare(b.getName()));
+        renderListPhone();
+    }
+    function deleteProduct(index) {
+        if (confirm("Do you really want to delete it?"))
+        listPhone.splice(index, 1);
+        renderListPhone();
+    }
+</script>
+</body>
+</html>

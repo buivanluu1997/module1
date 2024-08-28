@@ -1,10 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Hiển thị với thêm mới</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: cornflowerblue;
+            border-color: white;
+        }
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-$END$
+<div id="myTable"></div>
+<script>
+    class Mobile {
+        constructor(code, name, company, price) {
+            this.code = code;
+            this.name = name;
+            this.company = company;
+            this.price = price;
+            this.info =''
+        };
+        getCode() {
+            return this.code
+        }
+        setCode(code) {
+            this.code = code
+        }
+        getName() {
+            return this.name
+        }
+        setName(name) {
+            this.name = name
+        }
+        getCompany() {
+            return this.company
+        }
+        setCompany(company) {
+            this.company = company
+        }
+        getPrice() {
+            return this.price
+        }
+        setPrice(price) {
+            this.price = price
+        }
+        toStringInfo() {
+            this.info = ('Phonecode: ' + this.code + ' ' + 'Name: ' + this.name + ' ' + 'Company: ' + this.company + ' ' + 'Price: ' + this.price);
+            return this.info
+        }
+    }
+    let phoneList = []
+    function sortPhoneListByName(phoneList) {
+        let name = [];
+        let newList = [];
+        for (let i = 0; i < phoneList.length; i++) {
+            name.push(phoneList[i].name)
+        }
+        name = name.sort();
+        for (let i = 0; i < name.length; i++) {
+            for (let j = 0; j < phoneList.length; j++) {
+                if (name[i] === phoneList[j].name) {
+                    newList.push(phoneList[j]);
+                    break
+                }
+            }
+        }
+        return newList
+    }
+    let text = '';
+    function buildPhoneListTable() {
+        text =
+            '<table> ' +
+            '<tr> ' +
+            '<th>Phone Code ' +
+            '</th>' +
+            '<th>Name' +
+            '</th>' +
+            '<th>Company' +
+            '</th>' +
+            '<th>Price' +
+            '</th>' +
+            '</tr>'
+        for (let i = 0; i < phoneList.length; i++) {
+            text += '<tr>'
+            text += '<td>' + phoneList[i].code + '</td>'
+            text = text + '<td>' + phoneList[i].name + '</td>'
+            text = text + '<td>' + phoneList[i].company + '</td>'
+            text = text + '<td>' + phoneList[i].price + '</td>'
+            text += '</tr>'
+        }
+        text += '</table>'
+        text += '<form><button type="button" onclick="addNewMobile()">Add new Mobile</button></form>'
+        document.getElementById('myTable').innerHTML = text
+    }
+    function addNewMobile() {
+        let newMobile = new Mobile;
+        newMobile.setCode(prompt("Please add mobile's code"));
+        newMobile.setName(prompt("Please add mobile's name"));
+        newMobile.setCompany(prompt("Please add mobile's company"));
+        newMobile.setPrice(prompt("Please add mobile's price"));
+        phoneList.push(newMobile);
+        phoneList = sortPhoneListByName(phoneList);
+        buildPhoneListTable();
+        alert('New product is added');
+        console.log(phoneList)
+    }
+    console.log(phoneList.toStringInfo)
+    buildPhoneListTable()
+</script>
 </body>
 </html>

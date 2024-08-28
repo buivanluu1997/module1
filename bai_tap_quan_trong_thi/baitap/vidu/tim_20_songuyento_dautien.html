@@ -1,10 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Tìm 20 số nguyên tố đầu tiên</title>
 </head>
 <body>
-$END$
+<script>
+    let demSNT = 0;
+    let i = 2;
+    while (demSNT < 20) {
+        let kiemTra = true;
+        for (let j = 2; j < i; j++) {
+            if (i % j === 0) {
+                kiemTra = false;
+                break;
+            }
+        }
+        if (kiemTra) {
+            demSNT++;
+            document.write(i + " Là số nguyên tố" + "<br>");
+        }
+        i++;
+    }
+</script>
 </body>
 </html>

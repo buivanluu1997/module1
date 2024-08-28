@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let doDai;
+    do {
+        doDai = prompt("Nhập độ dài của mảng")
+    } while (doDai <= 0 || doDai > 20 || parseInt(doDai) != doDai);
+    let arr = [];
+    for (let i = 0; i < doDai; i++) {
+        let nhapPhanTu = prompt("Nhập phần tử thứ " + i);
+        arr.push(nhapPhanTu);
+    }
+    alert("Mảng của bạn vừa nhập là: " + arr);
+
+    function kiemTraSoNguyenTo(n) {
+       if (n < 2) {
+           return false;
+       }
+       for (let i = 2; i < n; i++) {
+           if (n % i === 0) {
+               return false;
+           }
+       }
+       return true;
+    }
+    function timSoNguyenTo (arr) {
+        let soNguyenTo = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (kiemTraSoNguyenTo(arr[i]) === true) {
+                soNguyenTo.push(arr[i]);
+            }
+        }
+        soNguyenTo.sort((a,b)=> a-b);
+        return  soNguyenTo
+    }
+    let ketQua = timSoNguyenTo(arr);
+    if (ketQua.length === 0) {
+        document.write("Không có số nguyên tố nào");
+    } else {
+        document.write("Các số nguyên tố có trong mảng là: " + ketQua);
+    }
+</script>
+</body>
+</html>

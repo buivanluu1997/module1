@@ -45,7 +45,42 @@
     <tbody id="tbody"></tbody>
 </table>
 <script>
-    let danhSach = ["Sony Xperia","SamSung Galaxy", "Nokia 6", "Xiaomi Note 4", "Apple Iphone 6s"];
+    class Phone {
+        constructor(id, name, price, companyName) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.companyName = companyName;
+        }
+        getId() {
+            return this.id
+        }
+        getName() {
+            return this.name
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getPrice() {
+            return this.price
+        }
+        setPrice(price) {
+            this.price = price
+        }
+        getCompanyName() {
+            return this.companyName
+        }
+        setCompanyName(name) {
+            this.companyName = name
+        }
+    }
+
+
+    let iphone11 = new Phone(11,"Iphone 11", 2000000,"Apple")
+    let iphone12 = new Phone(12,"Iphone 12", 2000000,"Apple")
+    let iphone13 = new Phone(13,"Iphone 13", 2000000,"Apple")
+
+    let danhSach = [iphone11,iphone12,iphone13];
     let idupdate = undefined;
     let inputText = document.getElementById("themMoi")
 
@@ -57,7 +92,7 @@
             text += index + 1;
             text += "</td>";
             text += "<td>";
-            text += item;
+            text += item.getName();
             text += "</td>";
             text += "<td>";
             text += `<button class="btn-edit" onclick="suaSanPham(${index})" >Edit</button>`;
@@ -71,26 +106,41 @@
     }
     hienThiDanhSach();
     function themSanPham() {
-        danhSach.push(inputText.value);
+        let nameProduct = inputText.value;
+        let newProduct = new Phone(11,nameProduct, 2000000,"Apple")
+        danhSach.push(newProduct);
         hienThiDanhSach();
         inputText.value = "";
         idupdate = undefined;
     }
-    function xoaSanPham(a) {
+    function xoaSanPham(id) {
+        let a = findIndex(id)
         danhSach.splice(a,1);
         hienThiDanhSach();
     }
     function suaSanPham(b) {
-       inputText.value = danhSach[b];
+       inputText.value = danhSach[b].getName();
        idupdate = b;
     }
     function update() {
         if (idupdate !== undefined) {
-            danhSach[idupdate] = inputText.value;
+
+            danhSach[idupdate].setName( inputText.value);
             hienThiDanhSach();
             inputText.value = "";
             idupdate = undefined;
         }
+    }
+
+    function findIndex(id)
+    {
+        let index = -1 ;
+        for(let i = 0 ; i < danhSach.length ; i++)
+        {
+            if(danhSach[i].getId() == id) index = i ;
+            break;
+        }
+        return index;
     }
 </script>
 </body>

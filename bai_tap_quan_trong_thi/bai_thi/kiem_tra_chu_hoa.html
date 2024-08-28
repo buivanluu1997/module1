@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+    function checkUpperCase (string) {
+        let count = 0;
+        let result;
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] >= 'A' && string[i] <= 'Z') {
+                count++;
+            }
+        }
+        if (count > 0) {
+            result = "Chuỗi " + string + " có " + count + " chữ in hoa.";
+            return result;
+        } else {
+            result = "Chuỗi " + string + " không có chữ in hoa nào.";
+            return result;
+        }
+    }
+    let string = prompt("Nhập chuỗi cần kiểm tra");
+    document.write(checkUpperCase(string));
+</script>
+</body>
+</html>

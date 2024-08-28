@@ -1,10 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #11baa8;
+            border-color: white;
+        }
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+        .btn {
+            background-color: #b8ec53;
+            color: #0b0b0b;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h2>Danh sách sản phẩm Điện thoại</h2>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Company Name</th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<button class="btn" onclick="addProduct()">Add Product</button>
+<script>
+    class Phone {
+        constructor(id, name, price, companyName) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.companyName = companyName;
+        }
+        getId() {
+            return this.id;
+        }
+        setId(id) {
+            this.id = id;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getPrice() {
+            return this.price;
+        }
+        setPrice(price) {
+            this.price = price;
+        }
+        getCompanyName() {
+            return this.companyName;
+        }
+        setCompanyName(companyName) {
+            this.companyName = companyName;
+        }
+    }
+    let listPhone = [];
+    function showListPhone() {
+        let text = "";
+        listPhone.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index+1;
+            text += "</td>";
+            text += "<td>";
+            text += item.getId();
+            text += "</td>";
+            text += "<td>";
+            text += item.getName();
+            text += "</td>";
+            text += "<td>";
+            text += item.getPrice();
+            text += "</td>";
+            text += "<td>";
+            text += item.getCompanyName();
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("tbody").innerHTML = text;
+    }
+    showListPhone();
+    function addProduct () {
+        let id = prompt("Nhập vào id sản phẩm");
+        if (checkID(id) === true) {
+            alert("Đã tồn tại Id trong danh sách")
+        } else {
+            let name = prompt("Nhập vào tên sản phẩm");
+            let price = prompt("Nhập vào giá sản phẩm");
+            let companyName = prompt("Nhập vào tên công ty");
+            let phone = new Phone(id, name, price, companyName);
+            listPhone.push(phone);
+            sortProduct();
+            showListPhone();
+        }
+    }
+    function checkID(id) {
+        for (let i = 0; i < listPhone.length; i++) {
+            if (id === listPhone[i].getId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+    function sortProduct() {
+        listPhone.sort((a,b) => a.getName().localeCompare(b.getName()))
+    }
+
+</script>
 </body>
 </html>

@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>quản lí sản phẩm</title>
+    <style>
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+        td,th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        thead{
+            background-color: blueviolet;
+            color: white;
+        }
+        .btn-delete {
+            background-color: #aa1b1b;
+            color: white;
+        }
+        .btn-edit {
+            background-color: blue;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h2>Shop Donal</h2>
+<input id="id-text" type="text">
+<button onclick="themSanPham()">Thêm</button>
+<button onclick="capNhatSanPham()">Cập Nhật</button>
+<h3>Danh sách Sản Phẩm</h3>
+<table>
+    <thead>
+    <tr>
+        <th>Stt</th>
+        <th>Tên Sản Phẩm</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="body"></tbody>
+</table>
+<script>
+    let danhSachSanPham = ["Áo pull Gucci", "Áo sơ mi DG", "Quấn jeans LV", "Quần tây BBR"];
+    let index = undefined;
+    function showDanhSachSanPham () {
+        let text = "";
+        for (let i = 0; i < danhSachSanPham.length; i++) {
+            text += "<tr>";
+            text += "<td>"
+            text += i+1;
+            text += "</td>";
+            text += "<td>"
+            text += danhSachSanPham[i];
+            text += "</td>";
+            text += "<td>"
+            text += `<button class="btn-edit" onclick="suaSanPham(${i})">Sửa</button>`;
+            text += "</td>";
+            text += "<td>"
+            text += `<button class="btn-delete" onclick="xoaSanPham(${i})">Xoá</button>`;
+            text += "</td>";
+            text += "</tr>";
+        }
+        document.getElementById("body").innerHTML = text;
+    }
+    showDanhSachSanPham();
+    function themSanPham() {
+        let tenSanPham = document.getElementById("id-text").value;
+        if (tenSanPham) {
+            danhSachSanPham.push(tenSanPham);
+            showDanhSachSanPham();
+            document.getElementById("id-text").value = "";
+        } else {
+            alert("Ban phai nhap ten san pham vao");
+        }
+        index = undefined;
+    }
+    function xoaSanPham(i) {
+        if (confirm("ban that su muon xao khong")) {
+            danhSachSanPham.splice(i,1);
+            showDanhSachSanPham();
+        }
+    }
+    function suaSanPham(i) {
+        document.getElementById("id-text").value = danhSachSanPham[i];
+        index = i;
+    }
+    function capNhatSanPham() {
+        danhSachSanPham[index] = document.getElementById("id-text").value;
+        showDanhSachSanPham();
+        document.getElementById("id-text").value = "";
+        index = undefined;
+    }
+</script>
 </body>
 </html>

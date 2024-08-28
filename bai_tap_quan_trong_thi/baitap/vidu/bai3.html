@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
 </head>
 <body>
-$END$
+<script>
+    function findMaxNumber(inputNum) {
+        let arr = inputNum.split("");
+        if (arr.length === 4) {
+            if (arr[0] > arr[1]) {
+                let min = arr[1];
+                let index = 1;
+                for (let i = 1; i < arr.length; i++) {
+                    if (arr[i] < min) {
+                        min = arr[i];
+                        index = i;
+                    }
+                }
+                arr.splice(index, 1);
+            } else {
+                arr.splice(0, 1);
+            }
+            return arr.join("");
+        } else {
+            return -1;
+        }
+    }
+
+    let inputNum = prompt("nhap vào");
+    document.write(findMaxNumber(inputNum));
+</script>
 </body>
 </html>

@@ -1,10 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>ung dung quan li san pham</title>
+    <style>
+        table {
+            width: 500px;
+            border-collapse: collapse;
+        }
+        td,th {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        thead{
+            background-color: blueviolet;
+            color: white;
+        }
+        #btn-delete {
+            background-color: #aa1b1b;
+            color: white;
+        }
+        #btn-update {
+            background-color: blue;
+            color: white;
+        }
+    </style>
 </head>
 <body>
-$END$
+<h2>Add New Product</h2>
+<input id="text-product" placeholder="New Product" type="text">
+<button onclick= "addProduct()">Add</button>
+<button onclick= "editProduct()">Edit</button>
+<h2>Display All Product</h2>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="list-product"></tbody>
+</table>
+<script>
+    let listProduct = ["Nokia", "SamSung", "Iphone", "XiaoMi", "Motorola","Hawei"];
+    function showListProduct () {
+        let text  = "";
+        listProduct.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index + 1;
+            text += "</td>";
+            text += "<td>";
+            text += item;
+            text += "</td>";
+            text += "<td>";
+            text += `<button id="btn-update" onclick="updateProduct(${index})">Update</button>`;
+            text += "</td>";
+            text += "<td>";
+            text += `<button id="btn-delete" onclick="deleteProduct(${index})">Delete</button>`;
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("list-product").innerHTML = text;
+    }
+    showListProduct();
+    function addProduct() {
+        let nameProduct = document.getElementById("text-product").value;
+        if (nameProduct) {
+            listProduct.push(nameProduct);
+            showListProduct();
+            document.getElementById("text-product").value = "";
+        } else {
+            alert("Please enter product name");
+        }
+    }
+    function deleteProduct(index) {
+        if (confirm("Do you really want to delete it?")) {
+            listProduct.splice(index,1);
+            showListProduct()
+        }
+    }
+    let newIndex = undefined;
+    function updateProduct(index) {
+        let product = listProduct[index];
+        newIndex = index;
+        document.getElementById("text-product").value = product;
+    }
+    function editProduct() {
+        listProduct[newIndex] = document.getElementById("text-product").value;
+        showListProduct();
+        document.getElementById("text-product").value = "";
+        newIndex = undefined;
+    }
+</script>
 </body>
 </html>

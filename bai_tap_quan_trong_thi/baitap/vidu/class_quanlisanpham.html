@@ -1,10 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 100%;
+        }
+
+        td {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-$END$
+
+<table id="table"></table>
+<center>
+    <button onclick="themDienThoaiMoi()">them dien thoai moi</button>
+</center>
+<p>Sap Xep</p>
+<button onclick="sapXepDanhSachDienThoai()">Tang dan theo ten</button>
+<script>
+    class DienThoai {
+        constructor(maDienThoai, tenDienThoai, hangSanXuat, giaDienThoai) {
+            this.maDienThoai = maDienThoai;
+            this.tenDienThoai = tenDienThoai;
+            this.hangSanXuat = hangSanXuat;
+            this.giaDienThoai = giaDienThoai;
+        }
+
+        getMaDienThoai() {
+            return this.maDienThoai;
+        }
+
+        getTenDienThoai() {
+            return this.tenDienThoai;
+        }
+
+        getHangSanXuat() {
+            return this.hangSanXuat;
+        }
+
+        getGiaDienThoai() {
+            return this.giaDienThoai;
+        }
+
+        setMaDienThoai(maDienThoai) {
+            this.maDienThoai = maDienThoai;
+        }
+
+        setTenDienThoai(tenDienThoai) {
+            this.tenDienThoai = tenDienThoai;
+        }
+
+        setHangSanXuat(hangSanXuat) {
+            this.hangSanXuat = hangSanXuat;
+        }
+
+        setGiaDienThoai(giaDienThoai) {
+            this.giaDienThoai = giaDienThoai;
+        }
+
+        toString() {
+            return `ma dien thoai la: ${this.maDienThoai}<br>
+                    ten dien thoai la: ${this.tenDienThoai}<br>
+                    hang san xuat la: ${this.hangSanXuat}<br>
+                    gia san pham la: ${this.giaDienThoai}`;
+        }
+    }
+
+    let danhSachDienThoai = [
+        new DienThoai('MGPR', 'MagicPro', 'Xiao Mi', 1500),
+        new DienThoai('SS20U', 'SamSungS20Utra', 'SAMSUNG', 1000),
+        new DienThoai('IPXPM', 'IphoneXProMax', 'Apple', 2000),
+    ];
+
+    function hienThiDanhSachDienThoai() {
+        let danhSach = `<tr>
+                            <th>Ma Dien Thoai</th>
+                            <th>Ten Dien Thoai</th>
+                            <th>Hang San Xuat</th>
+                            <th>Gia Dien Thoai</th>
+                        </tr>`;
+        for (let i = 0; i < danhSachDienThoai.length; i++) {
+            danhSach += `<tr>
+                            <td>${danhSachDienThoai[i].maDienThoai}</td>
+                            <td>${danhSachDienThoai[i].tenDienThoai}</td>
+                            <td>${danhSachDienThoai[i].hangSanXuat}</td>
+                            <td>${danhSachDienThoai[i].giaDienThoai}$</td>
+                         </tr>`;
+        }
+        document.getElementById('table').innerHTML = danhSach;
+    }
+
+    function themDienThoaiMoi() {
+        let maDienThoai = prompt('nhap ma dien thoai moi');
+        let tenDienThoai = prompt('nhap ten dien thoai moi');
+        let hangSanXuat = prompt('nhap hang san xuat moi');
+        let giaDienThoai = prompt('nhap gia dien thoai moi');
+        let dienThoaiMoi = new DienThoai(maDienThoai, tenDienThoai, hangSanXuat, giaDienThoai);
+        danhSachDienThoai.push(dienThoaiMoi);
+        hienThiDanhSachDienThoai();
+    }
+
+    function sapXepDanhSachDienThoai() {
+        danhSachDienThoai.sort();
+        hienThiDanhSachDienThoai();
+    }
+
+    hienThiDanhSachDienThoai();
+</script>
 </body>
 </html>

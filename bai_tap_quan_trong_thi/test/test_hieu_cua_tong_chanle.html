@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    do {
+        n = prompt("Nhập vào độ dài của mảng")
+    } while (n <= 0 || n > 20 || parseInt(n) != n);
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let inputA = +prompt("Nhập phần tử thứ " + i);
+        arr.push(inputA);
+    }
+    alert("Mảng bạn vừa nhập là " + arr);
+    let sumEven = 0;
+    let sumOdd = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            sumEven += arr[i];
+        } else {
+            sumOdd += arr[i];
+        }
+    }
+    let result = sumEven - sumOdd;
+    document.write("Hiệu của tổng các số chẵn và tổng các số lẽ là " + result);
+</script>
+</body>
+</html>
