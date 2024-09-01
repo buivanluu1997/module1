@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            background-color: #c0f4f4;
+            color: #0b0b0b;
+            font-family: VnArial;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #23085a;
+        }
+
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #1b13a3;
+            border-color: white;
+        }
+
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+        .btn-add {
+            background-color: #0a53be;
+            color: white;
+        }
+        .btn-sort {
+            background-color: #3ef111;
+            color: #0b0b0b;
+        }
+    </style>
+</head>
+<body>
+<h1>List Computer</h1>
+<table>
+    <label>Code:</label>
+    <input id="code" type="text"> <span> </span>
+    <label>Name:</label>
+    <input id="name" type="text"> <span> </span>
+    <label>Company Name:</label>
+    <input id="companyName" type="text"> <span> </span>
+    <label>Price:</label>
+    <input id="price" type="text"> <span> </span>
+    <button class="btn-add" onclick="addComputer()">Add</button>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Company Name</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="t-body"></tbody>
+</table>
+<button class="btn-sort" onclick="sortPrice()">Sort Price</button>
+<script>
+    class Computer {
+        constructor(code, name, companyName, price) {
+            this.code = code;
+            this.name = name;
+            this.companyName = companyName;
+            this.price = price;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        setCode(code) {
+            return this.code;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getCompanyName() {
+            return this.companyName;
+        }
+
+        setCompanyName(companyName) {
+            this.companyName = companyName;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toStringInfo() {
+            this.info = " Code: " + this.code + " Name: " + this.name + "Company Name: " + this.companyName + " Price: " + this.price;
+            return this.info
+        }
+    }
+
+    let listComputer = [new Computer(121, "Dell Precision 7551", "Dell", 1000),
+        new Computer(114, "Asus ROG", "Asus", 900),
+        new Computer(147, "Macbook Air", "Apple", 1500),];
+
+    function showListComputer() {
+        let text = "";
+        listComputer.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += item.code;
+            text += "</td>";
+            text += "<td>";
+            text += item.name;
+            text += "</td>";
+            text += "<td>";
+            text += item.companyName;
+            text += "</td>";
+            text += "<td>";
+            text += item.price + " $";
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("t-body").innerHTML = text;
+    }
+
+    showListComputer();
+
+    function addComputer() {
+        let code = document.getElementById("code").value;
+        let name = document.getElementById("name").value;
+        let companyName = document.getElementById("companyName").value;
+        let price = document.getElementById("price").value;
+        let computer = new Computer(code, name, companyName, price);
+        if (code === "" || name === "" || companyName === "" || price === "") {
+            alert("Please enter complete information")
+        } else {
+            listComputer.push(computer);
+            showListComputer();
+        }
+    }
+
+    function sortPrice() {
+        listComputer.sort((a, b) => a.getPrice() - b.getPrice());
+        showListComputer();
+    }
+</script>
+</body>
+</html>

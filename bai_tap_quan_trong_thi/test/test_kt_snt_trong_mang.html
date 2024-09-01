@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--tim so nguyen to trong mang nhap vao. in ra mang so nguyen to co trong mang-->
+<script>
+    function isPrime(number) {
+        if (number < 2) {
+            return false;
+        }
+        for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+                return false
+            }
+        }
+        return true;
+    }
+
+    function checkIprime(arr) {
+        let newArray = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i]) === true) {
+                newArray.push(arr[i]);
+            }
+        }
+        newArray.sort((a, b) => a - b)
+        return newArray;
+    }
+
+    let n = prompt("Nhập độ dài của mảng");
+    while (n <= 0 || n > 20 || parseInt(n) != n) {
+        n = prompt("Nhập lại n( số nguyên từ 1-20)")
+    }
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let inputA = prompt("Nhập vào phần tử thứ " + (i + 1));
+        arr.push(inputA);
+    }
+    alert("Mảng của bạn vừa nhập là: " + arr);
+
+    let result = checkIprime(arr);
+    if (result.length === 0) {
+        document.write("Mảng " + arr + " không có số nguyên tố nào");
+    } else {
+        document.write("Mảng " + arr + " có những số nguyên tố là " + result);
+    }
+</script>
+</body>
+</html>

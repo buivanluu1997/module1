@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let arr = str.trim().split(" ");
+        if (arr.length === 1) {
+            return "Chuỗi chỉ có 1 từ nên không cần viết tắt";
+        } else {
+            let newString = "";
+            for (let i = 0; i < arr.length; i++) {
+                if ((arr[i] >= 'a' && arr[i] <= 'z' || arr[i] >= 'A' && arr[i] <= 'Z')) {
+                    let character = arr[i][0].toUpperCase();
+                    newString += character;
+                }
+            }
+            return newString;
+        }
+    }
+
+    let str = "   object     Oriented     programming ";
+    document.write(checkString(str));
+</script>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"-->
+<!--          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"-->
+<!--            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"-->
+<!--            crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.css">
+    <script src="bootstrap-5.2.3-dist/js/bootstrap.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg" style="background-color: #07dbf6;color: #0b0b0b">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Dropdown
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled">Disabled</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<h2>Danh sách sản phẩm</h2>
+Mã sản phẩm:
+<input id="maSanPham" type="text">
+Tên sản phẩm:
+<input id="tenSanPham" type="text">
+Tên công ty:
+<input id="tenCongTy" type="text">
+Giá sản phẩm:
+<input id="giaSanPham" type="text">
+<button class="btn btn-outline-success btn-sm"  onclick="themSanPham()">Thêm</button>
+<button class="btn btn-outline-info btn-sm" onclick="capNhatSanPham()">Cập nhật</button>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Stt</th>
+        <th>Mã sản pẩm</th>
+        <th>Tên sản phẩm</th>
+        <th>Tên công ty</th>
+        <th>Giá sản phẩm</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="danhSachSP">
+    </tbody>
+</table>
+<button class="btn btn-primary btn-sm" onclick="sapXepGiaSanPham()">Sắp xếp giá sản phẩm</button>
+<script>
+    class DienThoai {
+        constructor(maSanPham, tenSanPham, tenCongTy, giaSanPham) {
+            this.maSanPham = maSanPham;
+            this.tenSanPham = tenSanPham;
+            this.tenCongTy = tenCongTy;
+            this.giaSanPham = giaSanPham;
+        }
+
+        getMaSanPham() {
+            return this.maSanPham;
+        }
+
+        setMaSanPham(maSanPham) {
+            this.maSanPham = maSanPham;
+        }
+
+        getTenSanPham() {
+            return this.tenSanPham;
+        }
+
+        setTenSanPham(tenSanPham) {
+            this.tenSanPham = tenSanPham;
+        }
+
+        getTenCongTy() {
+            return this.tenCongTy;
+        }
+
+        setTenCongTy(tenCongTy) {
+            this.tenCongTy = tenCongTy;
+        }
+
+        getGiaSanPham() {
+            return this.giaSanPham;
+        }
+
+        setGiaSanPham(giaSanPham) {
+            this.giaSanPham = giaSanPham;
+        }
+    }
+
+    let danhSachDienThoai = [
+        new DienThoai(122, "Iphone 14 Promax", "Apple", 20000000),
+        new DienThoai(124, "Iphone 15 Promax", "Apple", 30000000),
+        new DienThoai(134, "SamSung Note 10", "SamSung", 25000000),
+        new DienThoai(144, "XiaoMi 12Pro", "XiaoMi", 27000000)]
+
+    function hienThiDanhSachSanPham() {
+        let text = "";
+        danhSachDienThoai.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index + 1;
+            text += "</td>";
+            text += "<td>";
+            text += item.maSanPham;
+            text += "</td>";
+            text += "<td>";
+            text += item.tenSanPham;
+            text += "</td>";
+            text += "<td>";
+            text += item.tenCongTy
+            text += "</td>";
+            text += "<td>";
+            text += item.giaSanPham + " Vnđ";
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn btn-outline-primary btn-sm" onclick="suaSanPham(${index})">Sửa</button`;
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn btn-outline-danger btn-sm" onclick="xoaSanPham(${index})">Xoá</button`;
+            text += "</td>";
+            text += "</tr>";
+        })
+        document.getElementById("danhSachSP").innerHTML = text;
+    }
+
+    hienThiDanhSachSanPham();
+
+    function themSanPham() {
+        let maSanPham = document.getElementById("maSanPham").value;
+        let tenSanPham = document.getElementById("tenSanPham").value;
+        let tenCongTy = document.getElementById("tenCongTy").value;
+        let giaSanPham = document.getElementById("giaSanPham").value;
+        let dienThoaiMoi = new DienThoai(maSanPham, tenSanPham, tenCongTy, giaSanPham);
+        danhSachDienThoai.push(dienThoaiMoi);
+        hienThiDanhSachSanPham();
+    }
+
+    function sapXepGiaSanPham() {
+        danhSachDienThoai.sort((a, b) => a.getGiaSanPham() - b.getGiaSanPham());
+        hienThiDanhSachSanPham();
+    }
+
+    function xoaSanPham(index) {
+        if (confirm("Bạn thật sự muốn xoá không")) {
+            danhSachDienThoai.splice(index, 1);
+        }
+        hienThiDanhSachSanPham();
+    }
+
+    let newIndex = undefined;
+
+    function suaSanPham(index) {
+        let dienThoai = danhSachDienThoai[index];
+        document.getElementById("maSanPham").value = dienThoai.getMaSanPham();
+        document.getElementById("tenSanPham").value = dienThoai.getTenSanPham();
+        document.getElementById("tenCongTy").value = dienThoai.getTenCongTy();
+        document.getElementById("giaSanPham").value = dienThoai.getGiaSanPham();
+        newIndex = index;
+    }
+
+    function capNhatSanPham() {
+        if (newIndex !== undefined) {
+            let dienThoai = danhSachDienThoai[newIndex]
+            let maSanPham = document.getElementById("maSanPham").value;
+            let tenSanPham = document.getElementById("tenSanPham").value;
+            let tenCongty = document.getElementById("tenCongTy").value;
+            let giaSanPham = document.getElementById("giaSanPham").value;
+            dienThoai.setMaSanPham(maSanPham);
+            dienThoai.setTenSanPham(tenSanPham);
+            dienThoai.setTenCongTy(tenCongty);
+            dienThoai.setGiaSanPham(giaSanPham);
+            hienThiDanhSachSanPham();
+            document.getElementById("maSanPham").value = "";
+            document.getElementById("tenSanPham").value = "";
+            document.getElementById("tenCongTy").value = "";
+            document.getElementById("giaSanPham").value = "";
+            index = undefined;
+        } else {
+            alert("Vui lòng chọn sản phẩm để cập nhật")
+        }
+
+    }
+</script>
+</body>
+</html>

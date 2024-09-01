@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+
+    function isFibonacci(num) {
+        if (num < 0) {
+            return false;
+        }
+        let fib1 = 0;
+        let fib2 = 1;
+        if (num === fib1 || num === fib2) {
+            return true;
+        }
+        let fib3 = fib1 + fib2;
+        while (fib3 <= num) {
+            if (fib3 === num) {
+                return true;
+            }
+            fib1 = fib2;
+            fib2 = fib3;
+            fib3 = fib1 + fib2
+        }
+        return false;
+    }
+
+    function checkFibonacci(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isFibonacci(arr[i]) === true) {
+                newArr.push(arr[i])
+            }
+        }
+        newArr.sort((a, b) => a - b);
+        return newArr;
+    }
+
+    let arr = [1, 5, 6, 13, 9, 12, 8, 0, 5, 1];
+    document.write(checkFibonacci(arr));
+</script>
+</body>
+</html>
