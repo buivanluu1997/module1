@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hiệu tổng chẵn và tổng lẻ</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập độ dài của mảng");
+    while (n <= 0 || n > 20 || parseInt(n) != n) {
+        n = prompt("Nhập lại độ dài mảng(số nguyên và độ dài mảng 1-20)");
+    }
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        let element = +prompt("Nhập phần tử thứ " + (i+1))
+        arr.push(element);
+    }
+    alert("Mảng bạn vừa nhập là: " + arr);
+    let sumEven = 0;
+    let sumOdd = 0;
+    let result;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            sumEven += arr[i];
+        } else {
+            sumOdd += arr[i];
+        }
+    }
+    result = sumEven - sumOdd;
+    document.write("Hiệu tổng chẵn và tổng lẻ = " + result);
+</script>
+</body>
+</html>

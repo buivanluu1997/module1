@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quan ly san pham</title>
+    <style>
+    table {
+    width: 50%;
+    border-collapse: collapse;
+    }
+
+    tbody {
+    background-color: #c0f4f4;
+    color: #0b0b0b;
+    font-family: VnArial;
+    font-weight: bold;
+    }
+
+    h2 {
+    color: #23085a;
+    }
+
+    td, th {
+    padding: 20px;
+    border: 1px solid black;
+    }
+
+    th {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    background-color: #1b13a3;
+    border-color: white;
+    }
+
+    td {
+    color: #5F6062;
+    font-size: 13px;
+    padding: 20px 20px 20px 20px;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: center;
+    }
+    .btn-add {
+        background-color: #13a31a;
+        color: white;
+    }
+    .btn-sort {
+        background-color: #6f42c1;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+<h1>List Phone</h1>
+<label>Code:</label>
+<input id="id-code" type="text" placeholder="Code">
+<label>Name:</label>
+<input id="id-name" type="text" placeholder="Name">
+<label>Company:</label>
+<input id="id-company" type="text" placeholder="Company">
+<label>Price:</label>
+<input id="id-price" type="text" placeholder="Price">
+<button class="btn-add" onclick="addPhone()">Add</button>
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Company</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody id="t-body"></tbody>
+</table>
+<button class="btn-sort" onclick="sortPrice()">Sort Price</button>
+<script>
+    class Phone {
+        constructor(code, name, company, price) {
+            this.code = code;
+            this.name = name;
+            this.company = company;
+            this.price = price;
+        }
+
+        getCode() {
+            return this.code;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getCompany() {
+            return this.company;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setCode(code) {
+            this.code = code;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setCompany(company) {
+            this.company = company;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toStringInfo() {
+            this.info = "Code: " + this.code + " Name " + this.name + " Company " + this.company + " Price " + this.price;
+            return this.info;
+        }
+    }
+
+    let listPhone = [new Phone(121, "Iphone 15 Pro Max", "Apple", 1500),
+        new Phone(111, "SamSung Galaxy S23", "SamSung", 1000),
+        new Phone(141, "Xiaomi 12 Pro", "Xiaomi", 1300),
+        new Phone(105, "Iphone 14", "Apple", 800),];
+    function showListPhone() {
+        let text = "";
+            listPhone.forEach((item, index) => {
+                text += ` <tr>
+                         <td>${item.code}</td>
+                         <td>${item.name}</td>
+                         <td>${item.company}</td>
+                         <td>${item.price} $</td>
+                         </tr>`
+            })
+        document.getElementById("t-body").innerHTML = text;
+    }
+    showListPhone();
+    function addPhone() {
+        let code = document.getElementById("id-code").value;
+        let name = document.getElementById("id-name").value;
+        let company = document.getElementById("id-company").value;
+        let price = document.getElementById("id-price").value;
+        if (code === "" || name === "" || company === "" || price === "") {
+            alert("Please enter complete information")
+        } else {
+            let phone = new Phone(code, name, company, price);
+            listPhone.push(phone);
+            showListPhone();
+        }
+    }
+    function sortPrice() {
+        listPhone.sort((a,b) => a.getPrice() - b.getPrice());
+        showListPhone();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số lượng chữ in hoa trong chuỗi</title>
+</head>
+<body>
+<script>
+    function checkString(str) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] >= 'A' && str[i] <= 'Z') {
+                count++;
+                console.log(str[i])
+            }
+        }
+        if (count > 0) {
+            return "Chuỗi " + str + " có " + count + " chữ in hoa";
+        } else {
+            return "Chuỗi " + str + " không có chữ in hoa nào cả";
+        }
+    }
+    let str = "  Bui Van Luu   lGH";
+    document.write(checkString(str));
+</script>
+</body>
+</html>

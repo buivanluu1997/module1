@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        tbody {
+            background-color: #c0f4f4;
+            color: #0b0b0b;
+            font-family: VnArial;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #23085a;
+        }
+
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        th {
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            background-color: #1b13a3;
+            border-color: white;
+        }
+
+        td {
+            color: #5F6062;
+            font-size: 13px;
+            padding: 20px 20px 20px 20px;
+            border-bottom: 1px solid #E0E0E0;
+            text-align: center;
+        }
+
+        .btn-add {
+            background-color: #3ef111;
+        }
+
+        .btn-sort {
+            background-color: greenyellow;
+        }
+
+        .btn-delete {
+            background-color: #c80a20;
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: #1b13a3;
+            color: white;
+        }
+
+        .btn-update {
+            background-color: #215904;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h2>Phone Product List</h2>
+Id:
+<input id="in-id" type="text" placeholder="Id">
+Name:
+<input id="in-name" type="text" placeholder="Name">
+Company Name:
+<input id="in-companyName" type="text" placeholder="Company Name">
+Price:
+<input id="in-price" type="text" placeholder="Price">
+<button class="btn-add" onclick="addProduct()">Add Product</button>
+<button class="btn-edit" onclick="editProduct()">Edit Product</button>
+<br>
+<input id="id-search" type="text">
+<button onclick="searchPhone()">Search</button>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Company Name</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+
+<button class="btn-sort" onclick="sortProductName()">Sort product names</button>
+<script>
+    class Phone {
+        constructor(id, name, companyName, price) {
+            this.id = id;
+            this.name = name;
+            this.companyName = companyName;
+            this.price = price;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getCompanyName() {
+            return this.companyName;
+        }
+
+        setCompanyName(companyName) {
+            this.companyName = companyName;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+    }
+
+    let listPhone = [new Phone(124, "Iphone 14 promax", "Apple", 1300),
+        new Phone(134, "SamSung Note 10", "SamSung", 1100),
+        new Phone(141, "Xiaomi Note 13 promax", "Xiaomi", 800),
+        new Phone(124, "Iphone 15 promax", "Apple", 1700)];
+
+    function renderListPhone(listPhone) {
+        let text = "";
+        listPhone.forEach((item, index) => {
+            text += "<tr>";
+            text += "<td>";
+            text += index + 1;
+            text += "</td>";
+            text += "<td>";
+            text += item.id;
+            text += "</td>";
+            text += "<td>";
+            text += item.name;
+            text += "</td>";
+            text += "<td>";
+            text += item.companyName;
+            text += "</td>";
+            text += "<td>";
+            text += item.price + " $";
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-update" onclick="updateProduct(${index})">Update</button>`;
+            text += "</td>";
+            text += "<td>";
+            text += `<button class="btn-delete" onclick="deleteProduct(${index})">Delete</button>`;
+            text += "</td>";
+            text += "</tr>"
+        })
+        document.getElementById("tbody").innerHTML = text;
+    }
+
+    renderListPhone(listPhone);
+
+    function addProduct() {
+        let id = document.getElementById("in-id").value;
+        let name = document.getElementById("in-name").value;
+        let companyName = document.getElementById("in-companyName").value;
+        let price = document.getElementById("in-price").value;
+        let phone = new Phone(id, name, companyName, price);
+        listPhone.push(phone);
+        renderListPhone(listPhone);
+    }
+
+    function sortProductName() {
+        listPhone.sort((a, b) => a.getName().localeCompare(b.getName()));
+        renderListPhone(listPhone);
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Do you really want to delete it?"))
+            listPhone.splice(index, 1);
+        renderListPhone(listPhone);
+    }
+
+    let newIndex = undefined;
+
+    function updateProduct(index) {
+        document.getElementById("in-id").value = listPhone[index].getId();
+        document.getElementById("in-name").value = listPhone[index].getName();
+        document.getElementById("in-companyName").value = listPhone[index].getCompanyName();
+        document.getElementById("in-price").value = listPhone[index].getPrice();
+        newIndex = index;
+    }
+
+    function editProduct() {
+        listPhone[newIndex].setId(document.getElementById("in-id").value);
+        listPhone[newIndex].setName(document.getElementById("in-name").value);
+        listPhone[newIndex].setCompanyName(document.getElementById("in-companyName").value);
+        listPhone[newIndex].setPrice(document.getElementById("in-price").value);
+        renderListPhone(listPhone);
+        document.getElementById("in-id").value = "";
+        document.getElementById("in-name").value = "";
+        document.getElementById("in-companyName").value = "";
+        document.getElementById("in-price").value = "";
+    }
+
+    function searchPhone() {
+        let arrSearch = [];
+        let searchName = document.getElementById("id-search").value;
+        for (let i = 0; i < listPhone.length; i++) {
+            if (listPhone[i].getName().toLowerCase().includes(searchName)) {
+                arrSearch.push(listPhone[i]);
+            }
+        }
+        renderListPhone(arrSearch);
+    }
+</script>
+</body>
+</html>
